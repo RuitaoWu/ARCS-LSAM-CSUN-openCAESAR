@@ -1,9 +1,0 @@
-//occurs error if delete : after title
-//current problem "no viable alternative at input
-//reason cause that: I am think that the logical URl address it is not corretly setup as well as physical URL address
-@dc:title: "CSUN LSAM"
-description <http://oml/sample/> with # as lsam{
-    // URL has issue 
-    @rdfs:label "LSAM"
-    ci LSAM : project:OpticalTracker
-}

@@ -1,0 +1,9 @@
+@dc:title "example Description Bundle"
+// the logical URI and physical URI contains error
+description bundle <http://src/des/bundle> with # as description-bundle {
+	
+	uses <http://src/des/bundle>
+	
+	includes <http://src/des/sampleDes>	
+
+}

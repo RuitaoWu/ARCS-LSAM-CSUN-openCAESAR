@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
 	<!-- physical URL and Logical URL -->
-	<rewriteURI uriStartString="http://oml" rewritePrefix="src/oml/"/>
+	<rewriteURI uriStartString="http://src/" rewritePrefix="src/"/>
 	<!-- <rewriteURI uriStartString="http://" rewritePrefix="build/oml/" /> -->
 </catalog>
