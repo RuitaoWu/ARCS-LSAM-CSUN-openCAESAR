@@ -1,4 +1,4 @@
 # ARCS-LSAM-CSUN-openCAESAR
-## Implementing openCAESAR to create an ontology
-### [openCAESAR](https://github.com/opencaesar)
+## Implementing [openCAESAR](https://github.com/opencaesar) to create an ontology
+---
 Demo ontoloty with simple relation
