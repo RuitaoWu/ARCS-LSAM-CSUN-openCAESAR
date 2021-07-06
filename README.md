@@ -1,3 +1,5 @@
-# Ontology
-
-powered by [openCAESAR](https://github.com/opencaesar)
+# ARCS-LSAM-CSUN-openCAESAR
+## Implementing openCAESAR to create an ontology
+---
+- Current Issue
+  - URI contains error
