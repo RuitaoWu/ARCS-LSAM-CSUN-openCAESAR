@@ -1,7 +1,0 @@
-@dc:title "example description"
-// the logical URI and physical URI contains error
-description <http://voc> with # as sampleDes {
-     uses <http://voc/sample>
-     @dc:title "sample"
-     ci c1: sample:Sample
-}

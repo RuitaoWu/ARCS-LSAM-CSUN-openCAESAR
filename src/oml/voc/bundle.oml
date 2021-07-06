@@ -1,5 +1,0 @@
-@dc:title "Example Vocabulary Bundle"
-// the logical URI and physical URI contains error
-vocabulary bundle <http://src/voc/bundle> with # as vocabulary-bundle {
-    includes <http://src/voc/sample>
-}

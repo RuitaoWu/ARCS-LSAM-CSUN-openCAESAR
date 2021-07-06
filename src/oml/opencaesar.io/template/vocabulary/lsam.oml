@@ -1,0 +1,5 @@
+vocabulary <http://opencaesar.io/template/vocabulary/lsam> with # as lsam{
+    extends <http://opencaesar.io/template/vocabulary/vocabulary1>
+
+    concept samp :> vocabulary1:Mb
+}

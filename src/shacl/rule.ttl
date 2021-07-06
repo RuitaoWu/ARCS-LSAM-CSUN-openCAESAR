@@ -1,0 +1,43 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix vocabulary1: <http://opencaesar.io/template/vocabulary/vocabulary1#> .
+
+# The namespace for the shacl shapes ontology
+@prefix shapes: <http://shapes#> .
+
+
+# The following defines the `shapes` ontology.
+shapes:
+	a owl:Ontology ;
+	owl:imports sh: ;
+	sh:declare [
+		sh:prefix "vocabulary1" ;
+		sh:namespace "http://opencaesar.io/template/vocabulary/vocabulary1#"^^xsd:anyURI ;
+	]  ;
+	sh:declare [
+		sh:prefix "rdf" ;
+		sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+	] .
+	
+shapes:C_must_be_related_by_R_to_another_C
+	a sh:NodeShape ;
+	sh:targetClass vocabulary1:C ;
+	sh:sparql [
+		a sh:SPARQLConstraint ;
+		sh:message "{$this}, a vocabulary1:C, must be related to some other vocabulary1:C." ;
+		sh:prefixes shapes: ;
+		sh:select """
+			SELECT DISTINCT $this ?that
+			WHERE {
+				$this rdf:type vocabulary1:C .
+				FILTER NOT EXISTS { 
+					$this vocabulary1:r ?that .
+					?that rdf:type vocabulary1:C .
+				}
+			}
+			""" ;
+	] ;
+	sh:closed false .

@@ -1,2 +1,3 @@
-# ARCS-LSAM-CSUN-openCAESAR
-## Implementing openCAESAR to create an ontology
+# Ontology
+
+powered by [openCAESAR](https://github.com/opencaesar)

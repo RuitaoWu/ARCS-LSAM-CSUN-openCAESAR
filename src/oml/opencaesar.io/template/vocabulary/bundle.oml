@@ -1,0 +1,9 @@
+// @dc:title "Example Vocabulary Bundle"
+// @dc:creator "Example Company"
+// @dc:rights "Copyright 2019, by Example Company"
+vocabulary bundle <http://opencaesar.io/template/vocabulary/bundle> with # as vocabulary-bundle {
+		
+	// The vocabularies included in this bundle
+	includes <http://opencaesar.io/template/vocabulary/vocabulary1>	
+
+}

@@ -1,0 +1,23 @@
+sudo: false
+
+language: python
+
+python:
+  - "3.7"
+
+services:
+  - xvfb
+
+before_install:
+  - sudo apt-get install graphviz
+
+install:
+  - pip3 install bikeshed && bikeshed update
+
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.gradle
+    
+script:
+  - ./gradlew build generateDocs
