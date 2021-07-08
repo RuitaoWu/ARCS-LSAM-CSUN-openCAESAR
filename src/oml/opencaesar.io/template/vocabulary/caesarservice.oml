@@ -1,0 +1,41 @@
+@dc:title "openCAESAR Integration Service"
+vocabulary <http://opencaesar.io/template/vocabulary/caesarservice> with # as caesarservice{
+//    extends <http://opencaesar.io/template/vocabulary/vocabulary1>
+	extends <http://www.w3.org/2002/07/owl>
+	aspect ConfigurationManagement
+	@dc:title "Authoring tools"
+	concept AuthoringTools :> ConfigurationManagement
+	concept CoreVocabularies :> AuthoringTools 
+	concept FoundationVocabularies :> AuthoringTools 
+	concept DisciplineVocabularies:> AuthoringTools 
+	concept ApplicationVocabularies:> AuthoringTools 
+	concept Description:> AuthoringTools 
+	@dc:title "Analysis tools"
+	concept AnalysisTools :> ConfigurationManagement
+	concept Simulation :> AnalysisTools
+	concept SchedulingOperationSimulation :> AnalysisTools
+	concept LCC :> AnalysisTools
+	concept LCA :> AnalysisTools
+	concept SupplyChinLogistic :> AnalysisTools
+	//analysis
+	concept StaticAnalysis :> Simulation
+	concept DynamicAnalysis :> Simulation
+	concept ThermalAnalysis :> Simulation
+	concept Electrical :> Simulation
+	concept Structual :> Simulation
+
+	// relation
+	relation entity R1 [
+		from ConfigurationManagement
+		to AuthoringTools
+		forward r1
+		reverse name
+	]
+	relation entity R2 [
+		from ConfigurationManagement
+		to AnalysisTools
+		forward r2
+		reverse name1
+	]
+    
+}

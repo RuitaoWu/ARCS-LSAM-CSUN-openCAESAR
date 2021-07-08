@@ -9,6 +9,7 @@ description <http://opencaesar.io/template/description/description1> with # as d
 	// ci b : vocabulary1:B
 	 //short hand
 	ci a :lsam:samp
+	
 	ci sa :vocabulary1:Mb[
 		vocabulary1:abc "hello world"
 	]
