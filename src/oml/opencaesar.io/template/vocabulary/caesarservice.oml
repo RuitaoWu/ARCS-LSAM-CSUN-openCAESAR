@@ -2,16 +2,17 @@
 vocabulary <http://opencaesar.io/template/vocabulary/caesarservice> with # as caesarservice{
 //    extends <http://opencaesar.io/template/vocabulary/vocabulary1>
 	extends <http://www.w3.org/2002/07/owl>
+	extends <http://opencaesar.io/template/vocabulary/authortool>
 	aspect ConfigurationManagement
 	@dc:title "Authoring tools"
-	concept AuthoringTools :> ConfigurationManagement
-	concept CoreVocabularies :> AuthoringTools 
-	concept FoundationVocabularies :> AuthoringTools 
-	concept DisciplineVocabularies:> AuthoringTools 
-	concept ApplicationVocabularies:> AuthoringTools 
-	concept Description:> AuthoringTools 
+	aspect AuthoringTools :> authortool:AuthoringTools,MaintenanceTraining
+	concept CoreVocabularies :> authortool:AuthoringTools 
+	concept FoundationVocabularies :> authortool:AuthoringTools
+	concept DisciplineVocabularies:> authortool:AuthoringTools
+	concept ApplicationVocabularies:> authortool:AuthoringTools
+	concept Description:> authortool:AuthoringTools
 	@dc:title "Analysis tools"
-	concept AnalysisTools :> ConfigurationManagement
+	aspect AnalysisTools :> ConfigurationManagement
 	concept Simulation :> AnalysisTools
 	concept SchedulingOperationSimulation :> AnalysisTools
 	concept LCC :> AnalysisTools
@@ -23,19 +24,58 @@ vocabulary <http://opencaesar.io/template/vocabulary/caesarservice> with # as ca
 	concept ThermalAnalysis :> Simulation
 	concept Electrical :> Simulation
 	concept Structual :> Simulation
+	@dc:title "reporting tools"
+	aspect ReportingTools :> ConfigurationManagement
+	concept FileBased :> ReportingTools
+	concept DigitalOfSimulation :> ReportingTools
+	@dc:title "Design/Develop"
+	aspect DesignDevelop :> ConfigurationManagement
+	concept ConceptualDesign :> DesignDevelop
+	concept VirtualKnowledgeGraphDesign :> DesignDevelop
+	concept EngineeringDesign :> DesignDevelop
+	@dc:title "CAESAR Authoring WB"
+	aspect CAESARAuthorWB :>ConfigurationManagement
+	@dc:title "AR VR and Maintenance"
+	aspect ARVROperation :> ConfigurationManagement
+	aspect MaintenanceTraining :> ConfigurationManagement
+	concept KnowledgeDataset :> ARVROperation,MaintenanceTraining
+	@dc:title "Real Time Monitoring"
+	aspect RealTimeMonitoringOfManufacturing
+	concept EnergyDisaggregation :> RealTimeMonitoringOfManufacturing
+	concept FailureDetection :> RealTimeMonitoringOfManufacturing
+	@dc:title "Smart Connected Worker Human Machine Interaction AI-assisted System"
+	aspect SCWHumanMachineAISys
 
-	// relation
+	//relation
 	relation entity R1 [
-		from ConfigurationManagement
-		to AuthoringTools
-		forward r1
-		reverse name
+		from RealTimeMonitoringOfManufacturing
+		to AnalysisTools
+		forward DigitalTwin
+		reverse n1
 	]
 	relation entity R2 [
-		from ConfigurationManagement
-		to AnalysisTools
+		from RealTimeMonitoringOfManufacturing
+		to SCWHumanMachineAISys
 		forward r2
-		reverse name1
+		reverse n2
 	]
+	relation entity R3 [
+		from MaintenanceTraining
+		to AnalysisTools
+		forward DT
+		reverse n3
+	]
+	relation entity R4[
+		from MaintenanceTraining
+		to SCWHumanMachineAISys
+		forward r4
+		reverse n4
+	]
+	// relation entity R1 [
+	// 	from ConfigurationManagement
+	// 	to AuthoringTools
+	// 	forward r1
+	// 	reverse name
+	// ]
     
 }

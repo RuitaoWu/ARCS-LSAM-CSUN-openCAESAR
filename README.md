@@ -5,9 +5,12 @@
 git clone  https://github.com/RuitaoWu/ARCS-LSAM-CSUN-openCAESAR.git
 ```
 ---
-### The Flowchart that used to create an ontology
+### The Flowchart that used to create an ontology (Fixed the low pixel issue)
 ![Flowchart](https://github.com/RuitaoWu/ARCS-LSAM-CSUN-openCAESAR/blob/main/image/uml.jpg)
-### The following is the ontology Result that including two parts
-1. Authoring Tools
-2. Analysis Tools
-![Result](https://github.com/RuitaoWu/ARCS-LSAM-CSUN-openCAESAR/blob/main/image/oml-demo-1.jpg)
+### The following is the portal ontology result
+1. Portal Flowchart ontology completed
+2. Create "Authoring tools" ontology
+3. Connect "Authoring tools" to portal ontology that use portal extends it
+4. Hard to see the different in the result but it shows differnt in backend code
+5. It has different between the realtion and inheritance in the result
+![Demo](https://github.com/RuitaoWu/ARCS-LSAM-CSUN-openCAESAR/blob/main/image/oml-demo-1.jpg)
