@@ -5,11 +5,11 @@ vocabulary <http://opencaesar.io/template/vocabulary/caesarservice> with # as ca
 	extends <http://opencaesar.io/template/vocabulary/authortool>
 	aspect ConfigurationManagement
 	@dc:title "Authoring tools"
-	aspect AuthoringTools :> authortool:AuthoringTools,MaintenanceTraining
-	concept CoreVocabularies :> authortool:AuthoringTools 
-	concept FoundationVocabularies :> authortool:AuthoringTools
-	concept DisciplineVocabularies:> authortool:AuthoringTools
-	concept ApplicationVocabularies:> authortool:AuthoringTools
+	aspect AuthoringTools :> authortool:AuthoringTools,ConfigurationManagement
+	concept CoreVocabularies :> authortool:AuthoringTools,AuthoringTools
+	concept FoundationVocabularies :> authortool:AuthoringTools,AuthoringTools
+	concept DisciplineVocabularies:> authortool:AuthoringTools,AuthoringTools
+	concept ApplicationVocabularies:> authortool:AuthoringTools,AuthoringTools
 	concept Description:> authortool:AuthoringTools
 	@dc:title "Analysis tools"
 	aspect AnalysisTools :> ConfigurationManagement
@@ -26,8 +26,8 @@ vocabulary <http://opencaesar.io/template/vocabulary/caesarservice> with # as ca
 	concept Structual :> Simulation
 	@dc:title "reporting tools"
 	aspect ReportingTools :> ConfigurationManagement
-	concept FileBased :> ReportingTools
-	concept DigitalOfSimulation :> ReportingTools
+	concept FileBased 
+	concept DigitalOfSimulation 
 	@dc:title "Design/Develop"
 	aspect DesignDevelop :> ConfigurationManagement
 	concept ConceptualDesign :> DesignDevelop
@@ -51,31 +51,33 @@ vocabulary <http://opencaesar.io/template/vocabulary/caesarservice> with # as ca
 		from RealTimeMonitoringOfManufacturing
 		to AnalysisTools
 		forward DigitalTwin
-		reverse n1
 	]
 	relation entity R2 [
 		from RealTimeMonitoringOfManufacturing
 		to SCWHumanMachineAISys
 		forward r2
-		reverse n2
 	]
 	relation entity R3 [
 		from MaintenanceTraining
 		to AnalysisTools
 		forward DT
-		reverse n3
 	]
 	relation entity R4[
 		from MaintenanceTraining
 		to SCWHumanMachineAISys
 		forward r4
-		reverse n4
 	]
-	// relation entity R1 [
-	// 	from ConfigurationManagement
-	// 	to AuthoringTools
-	// 	forward r1
-	// 	reverse name
-	// ]
+
+	relation entity R5[
+		from DigitalOfSimulation
+		to ReportingTools
+		forward API
+	]
+
+	relation entity R6[
+		from FileBased
+		to ReportingTools
+		forward r6
+	]
     
 }

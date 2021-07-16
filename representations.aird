@@ -44,6 +44,7 @@
   <semanticResources>src/oml/opencaesar.io/template/vocabulary/vocabulary1.oml</semanticResources>
   <semanticResources>src/oml/opencaesar.io/template/vocabulary/bundle.oml</semanticResources>
   <semanticResources>src/oml/opencaesar.io/template/vocabulary/caesarservice.oml</semanticResources>
+  <semanticResources>src/oml/opencaesar.io/template/vocabulary/authortool.oml</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" uid="_rD9NAN59Eeud3LNcGUUuiw">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Descriptions']"/>
   </ownedViews>
