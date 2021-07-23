@@ -3,21 +3,23 @@ vocabulary <http://opencaesar.io/template/vocabulary/caesarservice> with # as ca
 //    extends <http://opencaesar.io/template/vocabulary/vocabulary1>
 	extends <http://www.w3.org/2002/07/owl>
 	extends <http://opencaesar.io/template/vocabulary/authortool>
+	extends <http://opencaesar.io/template/vocabulary/analysistool>
+	extends <http://opencaesar.io/template/vocabulary/designdevelop>  
 	aspect ConfigurationManagement
 	@dc:title "Authoring tools"
-	aspect AuthoringTools :> authortool:AuthoringTools,ConfigurationManagement
-	concept CoreVocabularies :> authortool:AuthoringTools,AuthoringTools
-	concept FoundationVocabularies :> authortool:AuthoringTools,AuthoringTools
-	concept DisciplineVocabularies:> authortool:AuthoringTools,AuthoringTools
-	concept ApplicationVocabularies:> authortool:AuthoringTools,AuthoringTools
+	aspect AuthoringTools :> authortool:AuthoringTools, ConfigurationManagement
+	concept CoreVocabularies :> authortool:AuthoringTools
+	concept FoundationVocabularies :> authortool:AuthoringTools
+	concept DisciplineVocabularies:> authortool:AuthoringTools
+	concept ApplicationVocabularies:> authortool:AuthoringTools
 	concept Description:> authortool:AuthoringTools
 	@dc:title "Analysis tools"
 	aspect AnalysisTools :> ConfigurationManagement
-	concept Simulation :> AnalysisTools
-	concept SchedulingOperationSimulation :> AnalysisTools
-	concept LCC :> AnalysisTools
-	concept LCA :> AnalysisTools
-	concept SupplyChinLogistic :> AnalysisTools
+	concept Simulation :> AnalysisTools,analysistool:Simulation
+	concept SchedulingOperationSimulation :> AnalysisTools,analysistool:SchedulingOperationSimulation
+	concept LCC :> AnalysisTools,analysistool:LCC
+	concept LCA :> AnalysisTools,analysistool:LCA
+	concept SupplyChinLogistic :> AnalysisTools,analysistool:SupplyChainLogistic
 	//analysis
 	concept StaticAnalysis :> Simulation
 	concept DynamicAnalysis :> Simulation
@@ -30,9 +32,10 @@ vocabulary <http://opencaesar.io/template/vocabulary/caesarservice> with # as ca
 	concept DigitalOfSimulation 
 	@dc:title "Design/Develop"
 	aspect DesignDevelop :> ConfigurationManagement
-	concept ConceptualDesign :> DesignDevelop
-	concept VirtualKnowledgeGraphDesign :> DesignDevelop
-	concept EngineeringDesign :> DesignDevelop
+	concept ConceptualDesign :> DesignDevelop,designdevelop:ConceptualDesign
+	concept VirtualKnowledgeGraphDesign :> DesignDevelop, designdevelop:VirtualKnowledgeGraphDesign
+	concept EngineeringDesign :> DesignDevelop, designdevelop:EngineerAndDesign
+	concept GenerativeDesign :> DesignDevelop, designdevelop:GenerativeDesign
 	@dc:title "CAESAR Authoring WB"
 	aspect CAESARAuthorWB :>ConfigurationManagement
 	@dc:title "AR VR and Maintenance"

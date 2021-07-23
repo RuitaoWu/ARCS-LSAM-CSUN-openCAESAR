@@ -1,0 +1,12 @@
+vocabulary <http://opencaesar.io/template/vocabulary/analysistool> with # as analysistool{
+    aspect Simulation
+    aspect StaticAnalysis :> Simulation
+    aspect DynamicAnalysis :> Simulation
+    aspect ThermalAnalysis :> Simulation
+    aspect Electrical :> Simulation
+    aspect Structual :> Simulation
+    aspect SchedulingOperationSimulation
+    aspect LCC
+    aspect LCA
+    aspect SupplyChainLogistic
+}

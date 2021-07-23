@@ -1,0 +1,6 @@
+description <http://opencaesar.io/template/description/authtooldescription/description> with # as authdescription{
+    uses <http://opencaesar.io/template/vocabulary/authortool>
+    ci appVoca : authortool:ApplicationVocabularies
+    
+}
+

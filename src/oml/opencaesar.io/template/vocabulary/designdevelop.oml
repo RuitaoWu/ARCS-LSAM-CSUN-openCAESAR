@@ -1,0 +1,6 @@
+vocabulary <http://opencaesar.io/template/vocabulary/designdevelop> with # as designdevelop {
+	aspect ConceptualDesign
+	aspect VirtualKnowledgeGraphDesign
+	aspect EngineerAndDesign
+	aspect GenerativeDesign
+}
