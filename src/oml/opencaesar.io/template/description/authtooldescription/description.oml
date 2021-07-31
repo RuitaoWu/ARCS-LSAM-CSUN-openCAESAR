@@ -1,6 +1,22 @@
+@dc:title "Discipline Description"
 description <http://opencaesar.io/template/description/authtooldescription/description> with # as authdescription{
-    uses <http://opencaesar.io/template/vocabulary/authortool>
-    ci appVoca : authortool:ApplicationVocabularies
+    uses <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies>
+ 
+    ci MinMebmberCap : disciplinevocabularies:MinMemberSize[
+       	disciplinevocabularies:Value "t>1mm"
+       	disciplinevocabularies:Load "None"
+        disciplinevocabularies:Priority "Must Have"
+        disciplinevocabularies:Status "Requirement not Fulfilled" 
+    ]
+    
+    ci FundamentalFre : disciplinevocabularies:FundamentalFrequency[
+    	disciplinevocabularies:Value "lambda > 200Hz"
+    	disciplinevocabularies:Load "Load case: 3"
+    	disciplinevocabularies:Priority "Must Have"
+    	disciplinevocabularies:Status "Requirement not Fulfilled"
+    ]
+    
+    
     
 }
 

@@ -1,3 +1,117 @@
+@dc:title "Discipline Vocabularies"
 vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies> with # as disciplinevocabularies{
+    extends <http://imce.jpl.nasa.gov/foundation/project>
+    extends <http://imce.jpl.nasa.gov/foundation/base>
+    extends <http://imce.jpl.nasa.gov/foundation/mission>
+    extends <http://imce.jpl.nasa.gov/foundation/analysis>
+    
+
+    @dc:title "Generative Design Requirements"
+
+    @dc:^description"Tracker and Support fully Enclosed"
+    concept ObstacleGeometries :> base:IdentifiedElement
+    @dc:^description"Tracker, Base mounting pads, and upper connecting pads"
+    concept PreserveGeometries :> base:IdentifiedElement
+    @dc:^description"suport grad"
+    concept DesignSpace :> base:IdentifiedElement
+    @dc:^description"Base mounting pads only"
+    concept Fixture :> base:IdentifiedElement
+    @dc:^description"load with different direction and same forces"
+    concept Load1-X :> base:IdentifiedElement
+    concept Load2-Y :> base:IdentifiedElement
+    concept Load1-Z :> base:IdentifiedElement
+    @dc:^description "ZX- 45deg, at least 2000N. Direction and load could change, yet these had proven to work"
+    concept RepresentativeLoad :> base:IdentifiedElement
+    @dc:^description "Minimize Mass. Should Maximizing strength be explored as well?"
+    concept OptimizationObjective :> base:IdentifiedElement
+    @dc:^description "Factor Of Safety 2.0"
+    concept OptimizationLimit :> base:IdentifiedElement
+    @dc:^description "Addivitive Manufactuting, unrestricted build orientation"
+    concept ManufacturingMethod :> base:IdentifiedElement
+    @dc:^description "TI 6AI-4V"
+    concept Material :> base:IdentifiedElement
+    @dc:^description "Not applicable otherwise indicated"
+    concept Gravity :> base:IdentifiedElement
+    @dc:^description "Location, quantity and geometry profile not definned"
+    concept BaseUpperMounting :> base:IdentifiedElement
+
+    scalar property X-Direction [
+        domain Load1-X
+        range xsd:string
+    ]
+    scalar property Y-Direction[
+        domain Load2-Y
+        range xsd:string
+    ]
+    scalar property Z-Direction[
+        domain Load1-Z
+        range xsd:string
+    ]
+    scalar property Load1-X-forces[
+        domain Load1-X
+        range xsd:double
+    ]
+    scalar property Load1-Z-forces[
+        domain Load1-Z
+        range xsd:double
+    ]
+    scalar property Load2-Y-forces[
+        domain Load2-Y
+        range xsd:double
+    ]
+
+    //separate line
+    @dc:title "Topology Optimization Paramaters"
+    @dc:^description "Ti-6Al-4V (Mounts)/Al 6061-T6 (Optical Instrument)"
+    concept Materials
+    @dc:^description "1mm"
+    concept MinThickness
+    @dc:^description "in x,y,z directions have same 2000N forces"
+    concept LoadForcesValues
+    @dc:^description "Minimize mass study tyep"
+    concept StudyType
+    @dc:^description "Support on base mounting pads"
+    concept Supports
+    @dc:^description "1.5 minimize mass"
+    concept FOS
+    @dc:^description "30% of total design space volume"
+    concept MaximizeStiffness
+    @dc:^description "no constraints"
+    concept Frequency
+    //separate line
+    @dc:title "thermoelastic property requirements"
+    @dc:^description "Tracker centerline deviation not exceeding 0.001 under all the thermal loads"
+    concept MinThermoelasticDeformation
+    @dc:^description "insulative design with tracker base to minimize heat transfer < 4w"
+    concept MinHeatLoss
+
+    //separate line
+    @dc:title "Requirements Data"
+    concept MinMemberSize
+    concept FundamentalFrequency
+    concept StructureShallNotYield
+    concept MinPointingDeviation
+    concept BaseInterfaceShallNotSlip
+    concept InstrumentInterfaceShallNotSlip
+    concept StructureShallNotBuckle
+    concept MinHeatLossThroughBaseInterface
+    
+    scalar property Priority  [
+        domain MinMemberSize
+        range xsd:string
+    ]
+
+    scalar property Status [
+        domain MinMemberSize
+        range xsd:string
+    ]
+    scalar property Value [
+        domain MinMemberSize
+        range xsd:string
+    ]
+    scalar property Load [
+        domain MinMemberSize
+        range xsd:string
+    ]
 
 }
