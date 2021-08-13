@@ -62,22 +62,46 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
 
     //separate line
     @dc:title "Topology Optimization Paramaters"
-    @dc:^description "Ti-6Al-4V (Mounts)/Al 6061-T6 (Optical Instrument)"
-    concept Materials
-    @dc:^description "1mm"
-    concept MinThickness
-    @dc:^description "in x,y,z directions have same 2000N forces"
-    concept LoadForcesValues
-    @dc:^description "Minimize mass study tyep"
-    concept StudyType
-    @dc:^description "Support on base mounting pads"
-    concept Supports
-    @dc:^description "1.5 minimize mass"
-    concept FOS
-    @dc:^description "30% of total design space volume"
-    concept MaximizeStiffness
-    @dc:^description "no constraints"
-    concept Frequency
+    concept Static
+    concept Fixtures
+    concept Representative
+    concept MinimizeMass
+    concept MaxStifness
+    concept TopologyMaterial
+    concept Method
+    concept Geometry
+    
+    relation entity Load[
+        from Static
+        to Representative
+        forward load
+        reflexive
+    ]
+    relation entity BoundaryConditions[
+        from Static
+        to Fixtures
+        forward boundaryconditions
+    ]
+    relation entity Ojbective[
+        from MinimizeMass
+        to MaxStifness
+        forward ojbective
+    ]
+    relation entity Manufacturing[
+        from TopologyMaterial
+        to Method
+        forward manufacturing
+    ]
+    scalar property Magnitude[
+        domain Static
+        range xsd:int
+    ]
+    scalar property Direction[
+        domain Static
+        range xsd:string
+    ]
+    
+    
     //separate line
     @dc:title "thermoelastic property requirements"
     @dc:^description "Tracker centerline deviation not exceeding 0.001 under all the thermal loads"
@@ -109,9 +133,6 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
         domain MinMemberSize
         range xsd:string
     ]
-    scalar property Load [
-        domain MinMemberSize
-        range xsd:string
-    ]
+
 
 }
