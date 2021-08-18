@@ -1,21 +1,91 @@
 @dc:title "Discipline Description"
-description <http://opencaesar.io/template/description/authtooldescription/description> with # as authdescription{
-    uses <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies>
-    
-    ci Representativ : disciplinevocabularies:Representative[
-        disciplinevocabularies:Magnitude 2000
-        disciplinevocabularies:Direction "Test Y-dir"
-    ]
-    
-    ci Static : disciplinevocabularies:Static[
-        disciplinevocabularies:Direction "Test X-Dir"
-        disciplinevocabularies:Magnitude 2000
-    ]
-    ri Load : disciplinevocabularies:Load[
-    	from Static
-    	to Representativ
-    	
-    ]
-    
-}
+description <http://opencaesar.io/template/description/authtooldescription/description> with # as authdescription {
 
+	uses <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies>
+
+	@dc:title "Generative Design Optimization Concept Instance"
+	ci Start : disciplinevocabularies:GenerativeDesignOptimization
+
+	ci Static : disciplinevocabularies:Static [
+				disciplinevocabularies:Magnitude "Sample: 2000"
+				disciplinevocabularies:Direction "Sample: X"
+	]
+
+	ci Representative : disciplinevocabularies:Representative [
+			disciplinevocabularies:Magnitude "Sample 2000"
+			disciplinevocabularies:Direction "Sample: y"
+	]
+
+	ci Fixtures : disciplinevocabularies:Fixtures [
+		disciplinevocabularies:DegreeOfFreedom "degree of freedom"
+	]
+	ci Geometry : disciplinevocabularies:Geometry[
+		disciplinevocabularies:Obstacle "obstacle"
+		disciplinevocabularies:Preserve "preserve"
+		disciplinevocabularies:OptimizedSpace " optimized space"
+	]
+	ci Ti6a4v : disciplinevocabularies:Ti6a4v[
+		disciplinevocabularies:Yield "Test"
+		disciplinevocabularies:Ultimate "test"
+		disciplinevocabularies:YoungModulus "test"
+		disciplinevocabularies:PoissonRatio 1.11
+		disciplinevocabularies:Density 100.1
+		disciplinevocabularies:ThermalConductivity "test"
+		disciplinevocabularies:ThermalDiffusivity "test"
+	]
+	ci Al6061 : disciplinevocabularies:Al6061[
+		disciplinevocabularies:YoungModulus "test"
+		disciplinevocabularies:PoissonRatio 2.22
+		disciplinevocabularies:Density 111
+		disciplinevocabularies:ThermalConductivity "test"
+		disciplinevocabularies:ThermalDiffusivity "test"
+	]
+	ci MinimizeMass : disciplinevocabularies:MinimizeMass[
+		disciplinevocabularies:MinMassLimit "test"
+	]
+	ci MaxStiffness : disciplinevocabularies:MaximizeStiffness[
+		disciplinevocabularies:MaxStifnessLimit "test"
+		disciplinevocabularies:MaxStifnessMassTarget "test"
+	]
+	ci Method : disciplinevocabularies:Method[
+		disciplinevocabularies:AdditiveManufacturing "test"
+	]
+	@dc:title "Generative Design Optimization Concept Instance relation"
+	@dc:^description "Connect two concept instance through the realtion"
+	ri BoundaryCond : disciplinevocabularies:BoundaryConditions [
+		from authdescription:Start
+		to authdescription:Static
+	]
+	ri BoundaryCondFixtures : disciplinevocabularies:BoundaryConditions [
+		from authdescription:Start
+		to authdescription:Fixtures
+	]
+	ri Load : disciplinevocabularies:Load [
+		from authdescription:Static
+		to authdescription:Representative
+	]
+	ri Body : disciplinevocabularies:Body[
+		from authdescription:Start
+		to authdescription:Geometry
+	]
+	ri Material : disciplinevocabularies:Material[
+		from authdescription:Start
+		to authdescription:Ti6a4v
+	]
+	ri MaterialAl6061 : disciplinevocabularies:MaterialAl6061[
+		from authdescription:Start
+		to authdescription:Al6061
+	]
+	ri Objective : disciplinevocabularies:Objective [
+		from authdescription:Start
+		to authdescription:MinimizeMass
+	]
+	ri ObjectiveStiffness : disciplinevocabularies:ObjectiveMaxStiffness[
+		from authdescription:Start
+		to authdescription:MaxStiffness
+	]
+	ri Manufacturing : disciplinevocabularies:Manufacturing[
+		from authdescription:Start
+		to authdescription:Method
+	]
+}

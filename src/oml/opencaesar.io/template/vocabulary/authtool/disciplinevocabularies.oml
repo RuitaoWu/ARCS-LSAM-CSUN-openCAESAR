@@ -6,92 +6,18 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     extends <http://imce.jpl.nasa.gov/foundation/analysis>
     
 
-    @dc:title "Generative Design Requirements"
-
-    @dc:^description"Tracker and Support fully Enclosed"
-    concept ObstacleGeometries :> base:IdentifiedElement
-    @dc:^description"Tracker, Base mounting pads, and upper connecting pads"
-    concept PreserveGeometries :> base:IdentifiedElement
-    @dc:^description"suport grad"
-    concept DesignSpace :> base:IdentifiedElement
-    @dc:^description"Base mounting pads only"
-    concept Fixture :> base:IdentifiedElement
-    @dc:^description"load with different direction and same forces"
-    concept Load1-X :> base:IdentifiedElement
-    concept Load2-Y :> base:IdentifiedElement
-    concept Load1-Z :> base:IdentifiedElement
-    @dc:^description "ZX- 45deg, at least 2000N. Direction and load could change, yet these had proven to work"
-    concept RepresentativeLoad :> base:IdentifiedElement
-    @dc:^description "Minimize Mass. Should Maximizing strength be explored as well?"
-    concept OptimizationObjective :> base:IdentifiedElement
-    @dc:^description "Factor Of Safety 2.0"
-    concept OptimizationLimit :> base:IdentifiedElement
-    @dc:^description "Addivitive Manufactuting, unrestricted build orientation"
-    concept ManufacturingMethod :> base:IdentifiedElement
-    @dc:^description "TI 6AI-4V"
-    concept Material :> base:IdentifiedElement
-    @dc:^description "Not applicable otherwise indicated"
-    concept Gravity :> base:IdentifiedElement
-    @dc:^description "Location, quantity and geometry profile not definned"
-    concept BaseUpperMounting :> base:IdentifiedElement
-
-    scalar property X-Direction [
-        domain Load1-X
-        range xsd:string
-    ]
-    scalar property Y-Direction[
-        domain Load2-Y
-        range xsd:string
-    ]
-    scalar property Z-Direction[
-        domain Load1-Z
-        range xsd:string
-    ]
-    scalar property Load1-X-forces[
-        domain Load1-X
-        range xsd:double
-    ]
-    scalar property Load1-Z-forces[
-        domain Load1-Z
-        range xsd:double
-    ]
-    scalar property Load2-Y-forces[
-        domain Load2-Y
-        range xsd:double
-    ]
-
-    //separate line
-    @dc:title "Topology Optimization Paramaters"
+    @dc:title "Generative Design Optimization"
+    concept GenerativeDesignOptimization
     concept Static
     concept Fixtures
-    concept Representative
-    concept MinimizeMass
-    concept MaxStifness
-    concept TopologyMaterial
-    concept Method
+    concept Representative :> Static
     concept Geometry
-    
-    relation entity Load[
-        from Static
-        to Representative
-        forward load
-        reflexive
-    ]
-    relation entity BoundaryConditions[
-        from Static
-        to Fixtures
-        forward boundaryconditions
-    ]
-    relation entity Ojbective[
-        from MinimizeMass
-        to MaxStifness
-        forward ojbective
-    ]
-    relation entity Manufacturing[
-        from TopologyMaterial
-        to Method
-        forward manufacturing
-    ]
+    concept Ti6a4v
+    concept Al6061 :> Ti6a4v
+    concept Method
+    concept MinimizeMass
+    concept MaximizeStiffness
+    //Generative Design Optimization Property
     scalar property Magnitude[
         domain Static
         range xsd:int
@@ -100,39 +26,177 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
         domain Static
         range xsd:string
     ]
-    
-    
-    //separate line
-    @dc:title "thermoelastic property requirements"
-    @dc:^description "Tracker centerline deviation not exceeding 0.001 under all the thermal loads"
-    concept MinThermoelasticDeformation
-    @dc:^description "insulative design with tracker base to minimize heat transfer < 4w"
-    concept MinHeatLoss
-
-    //separate line
-    @dc:title "Requirements Data"
-    concept MinMemberSize
-    concept FundamentalFrequency
-    concept StructureShallNotYield
-    concept MinPointingDeviation
-    concept BaseInterfaceShallNotSlip
-    concept InstrumentInterfaceShallNotSlip
-    concept StructureShallNotBuckle
-    concept MinHeatLossThroughBaseInterface
-    
-    scalar property Priority  [
-        domain MinMemberSize
+    scalar property DegreeOfFreedom[
+        domain Fixtures
         range xsd:string
     ]
-
-    scalar property Status [
-        domain MinMemberSize
+    scalar property Obstacle[
+        domain Geometry
         range xsd:string
     ]
-    scalar property Value [
-        domain MinMemberSize
+    scalar property Preserve[
+        domain Geometry
         range xsd:string
     ]
+    scalar property OptimizedSpace[
+        domain Geometry
+        range xsd:string
+    ]
+    scalar property Yield[
+        domain Ti6a4v
+        range  xsd:string
+    ]
+    scalar property Ultimate[
+        domain Ti6a4v
+        range xsd:string
+    ]
+    scalar property YoungModulus[
+        domain Ti6a4v
+        range xsd:string
+    ]
+    scalar property PoissonRatio[
+        domain Ti6a4v
+        range xsd:float
+    ]
+    scalar property Density[
+        domain Ti6a4v
+        range xsd:int
+    ]
+    scalar property ThermalConductivity[
+        domain Ti6a4v
+        range xsd:string
+    ]
+    scalar property ThermalDiffusivity[
+        domain Ti6a4v
+        range  xsd:string
+    ]
+    scalar property AdditiveManufacturing[
+        domain Method
+        range xsd:string
+    ]
+    scalar property MinMassLimit[
+        domain MinimizeMass
+        range xsd:string
+    ]
+    scalar property MaxStifnessLimit[
+        domain MaximizeStiffness
+        range xsd:string
+    ]
+    scalar property MaxStifnessMassTarget[
+        domain MaximizeStiffness
+        range xsd:string
+    ]
+    //Generative Design Optimization relation
+    relation entity BoundaryConditions[
+        from GenerativeDesignOptimization
+        to Static
+        forward boundaryconditions
+    ]
+    relation entity BoundaryConditionsFixtures[
+        from GenerativeDesignOptimization
+        to Fixtures
+        forward boundaryConditionsFixtures
+    ]
+    relation entity Load[
+        from Static
+        to Representative
+        forward load
+    ]
+    relation entity Body[
+        from GenerativeDesignOptimization
+        to Geometry
+        forward body
+    ]
+    relation entity Material[
+        from GenerativeDesignOptimization
+        to Ti6a4v
+        forward material
+    ]
+    relation entity MaterialAl6061[
+        from GenerativeDesignOptimization
+        to Al6061
+        forward materialAl6061
+    ]
+    relation entity Manufacturing[
+        from GenerativeDesignOptimization
+        to Method
+        forward manufacturing
+    ]
+    relation entity Objective[
+        from GenerativeDesignOptimization
+        to MinimizeMass
+        forward objective
+    ]
+    relation entity ObjectiveMaxStiffness[
+        from GenerativeDesignOptimization
+        to MaximizeStiffness
+        forward objectiveMaxStiffness
+    ]
+    /*****************************************************************************************************/
+    /**********************************separate line*****************************************************/
+    @dc:title "Mounting Bracket"
+    concept MountingBracket
+    concept ThermalLoads
+    concept ThermoelasticPointingDev
+    concept HeatLoss
+    //Mounting Bracket Property
+    scalar property TrackerTemp[
+        domain ThermalLoads
+        range xsd:float
+    ]
+    scalar property MountsTemp[
+        domain ThermalLoads
+        range xsd:float
+    ]
+    scalar property CenterlinePosi[
+        domain ThermoelasticPointingDev
+        range xsd:string
+    ]
+    scalar property HeatTransThroughMounts[
+        domain HeatLoss
+        range xsd:string
+    ]
+    //Mounting Bracket Relation
+    relation entity LoadingCond[
+        from MountingBracket
+        to ThermalLoads
+        forward loadingCond
+    ]
+    relation entity DesignReq[
+        from MountingBracket
+        to ThermoelasticPointingDev
+        forward designReq
+    ]
+    relation entity DesignReqHeatLoss[
+        from MountingBracket
+        to HeatLoss
+        forward designReqHeatLoss
+    ]
 
-
+    /*****************************************************************************************************/
+    /**********************************separate line*****************************************************/
+    @dc:title "Topology Optimization"
+    concept TopologyOptimization
+    concept Gravity
+    concept FrequencyConstraint
+    //Topology Optimization Property
+    scalar property Status[
+        domain Gravity
+        range xsd:boolean
+    ]
+    scalar property Hz[
+        domain FrequencyConstraint
+        range xsd:float
+    ]
+    //Topology Optimization Relation
+    relation entity Force[
+        from TopologyOptimization
+        to Gravity
+        forward force
+    ]
+    relation entity R1[
+        from TopologyOptimization
+        to FrequencyConstraint
+        forward r1
+    ]
 }
