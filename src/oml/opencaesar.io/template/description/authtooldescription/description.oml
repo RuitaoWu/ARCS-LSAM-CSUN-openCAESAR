@@ -88,4 +88,37 @@ description <http://opencaesar.io/template/description/authtooldescription/descr
 		from authdescription:Start
 		to authdescription:Method
 	]
+	//******************************************seperate line**********************************************************************
+	@dc:title "Mounting Bracket Concept Instance"
+	ci MountingBracket : disciplinevocabularies:MountingBracket
+	ci ThermalLoads : disciplinevocabularies:ThermalLoads[
+		disciplinevocabularies:TrackerTemp 11.11
+		disciplinevocabularies:MountsTemp	12.11
+	]
+	ci ThermoelasticPoiDev : disciplinevocabularies:ThermoelasticPointingDev[
+		disciplinevocabularies:CenterlinePosi "middle"
+	]
+	ci HeatLoss : disciplinevocabularies:HeatLoss[
+		disciplinevocabularies:HeatTransThroughMounts 111
+	]
+	//Mounting Bracket Relation
+	ri LoadingCond : disciplinevocabularies:LoadingCond[
+		from authdescription:MountingBracket
+		to authdescription:ThermalLoads
+	]
+	ri DesignReq : disciplinevocabularies:DesignReq[
+		from authdescription:MountingBracket
+		to authdescription:ThermoelasticPoiDev
+	]
+	ri DesignReqHeatLoss : disciplinevocabularies:DesignReqHeatLoss[
+		from authdescription:MountingBracket
+		to authdescription:HeatLoss
+	]
+	//******************************************seperate line**********************************************************************
+	@dc:title "Topology Optimization Concept Instance"
+	ci TopologyOptimization : disciplinevocabularies:TopologyOptimization
+	ci TopoGeometry : disciplinevocabularies:Geometry[
+		disciplinevocabularies:NonDesign "Non-Design Space"
+		disciplinevocabularies:Design "Design Space"
+	]
 }
