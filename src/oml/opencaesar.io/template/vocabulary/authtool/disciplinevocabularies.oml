@@ -8,22 +8,30 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
 
     @dc:title "Generative Design Optimization"
     concept GenerativeDesignOptimization
-    concept Static
+    concept StaticLoad
     concept Fixtures
-    concept Representative :> Static
+    concept RepresentativeLoad
     concept Geometry
     concept Ti6a4v
-    concept Al6061 :> Ti6a4v
+    concept Al6061
     concept Method
     concept MinimizeMass
     concept MaximizeStiffness
     //Generative Design Optimization Property
+    scalar property Dir[
+        domain RepresentativeLoad
+        range xsd:string
+    ]
+    scalar property Magn[
+        domain RepresentativeLoad
+        range xsd:int
+    ]
     scalar property Magnitude[
-        domain Static
+        domain StaticLoad
         range xsd:int
     ]
     scalar property Direction[
-        domain Static
+        domain StaticLoad
         range xsd:string
     ]
     scalar property DegreeOfFreedom[
@@ -70,6 +78,26 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
         domain Ti6a4v
         range  xsd:string
     ]
+     scalar property YoungModulus6061[
+        domain Al6061
+        range xsd:string
+    ]
+    scalar property PoissonRatio6061[
+        domain Al6061
+        range xsd:float
+    ]
+    scalar property Density6061[
+        domain Al6061
+        range xsd:int
+    ]
+    scalar property ThermalConductivity6061[
+        domain Al6061
+        range xsd:string
+    ]
+    scalar property ThermalDiffusivity6061[
+        domain Al6061
+        range  xsd:string
+    ]
     scalar property AdditiveManufacturing[
         domain Method
         range xsd:string
@@ -86,19 +114,15 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
         domain MaximizeStiffness
         range xsd:string
     ]
-    //Topology Geometry Property
-    scalar property NonDesign[
-        domain Geometry
-        range xsd:string
-    ]
-    scalar property Design[
+    //topology property
+    scalar property Envir[
         domain Geometry
         range xsd:string
     ]
     //Generative Design Optimization relation
     relation entity BoundaryConditions[
         from GenerativeDesignOptimization
-        to Static
+        to StaticLoad
         forward boundaryconditions
     ]
     relation entity BoundaryConditionsFixtures[
@@ -106,10 +130,10 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
         to Fixtures
         forward boundaryConditionsFixtures
     ]
-    relation entity Load[
-        from Static
-        to Representative
-        forward load
+    relation entity BoundaryCondRepresentative[
+        from disciplinevocabularies:GenerativeDesignOptimization
+        to RepresentativeLoad
+        forward boundaryCondRepresentative
     ]
     relation entity Body[
         from GenerativeDesignOptimization
@@ -188,6 +212,10 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     concept TopologyOptimization
     concept Gravity
     concept FrequencyConstraint
+    concept Load 
+    concept MaxFrequency
+    concept TopoMaxStiffness
+    concept TopoMinMass
     //Topology Optimization Property
     scalar property Status[
         domain Gravity
@@ -197,7 +225,29 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
         domain FrequencyConstraint
         range xsd:float
     ]
+    scalar property LoadDir[
+    	domain Load
+    	range xsd:string
+    ]
+    scalar property LoadMagnitude[
+    	domain Load
+    	range xsd:int 
+    ]
+    scalar property PercentTotalVolum[
+    	domain TopoMaxStiffness
+    	range xsd:float
+    ]
+    scalar property Safety[
+    	domain TopoMinMass
+    	range xsd:string
+    ]
     //Topology Optimization Relation
+    relation entity TopoLoadCon[
+    	from TopologyOptimization
+        to Load
+        forward topoLoadCon
+    ]
+    
     relation entity Force[
         from TopologyOptimization
         to Gravity
@@ -207,5 +257,20 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
         from TopologyOptimization
         to FrequencyConstraint
         forward r1
+    ]
+    relation entity TopoObjectiveFreq[
+    	from TopologyOptimization
+    	to MaxFrequency
+    	forward topoobjectivefreq
+    ]
+    relation entity TopoStiffness[
+    	from TopologyOptimization
+    	to TopoMaxStiffness
+    	forward topostiffness
+    ]
+    relation entity TopoMass[
+    	from TopologyOptimization
+    	to TopoMinMass
+    	forward topominmass
     ]
 }
