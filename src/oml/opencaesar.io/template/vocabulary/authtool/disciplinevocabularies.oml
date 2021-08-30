@@ -5,9 +5,10 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     extends <http://imce.jpl.nasa.gov/foundation/mission>
     extends <http://imce.jpl.nasa.gov/foundation/analysis>
     
-
+    //start point
+    aspect MountingBracket
     @dc:title "Generative Design Optimization"
-    concept GenerativeDesignOptimization
+    concept GenerativeDesignOptimization :> MountingBracket
     concept StaticLoad
     concept Fixtures
     concept RepresentativeLoad
@@ -17,6 +18,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     concept Method
     concept MinimizeMass
     concept MaximizeStiffness
+    concept Inspection
     //Generative Design Optimization Property
     scalar property Dir[
         domain RepresentativeLoad
@@ -114,6 +116,14 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
         domain MaximizeStiffness
         range xsd:string
     ]
+    scalar property Roughness[
+        domain Inspection
+        range xsd:string
+    ]
+    scalar property Tolerance[
+        domain Inspection
+        range xsd:string
+    ]
     //topology property
     scalar property Envir[
         domain Geometry
@@ -155,6 +165,11 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
         to Method
         forward manufacturing
     ]
+    relation entity ManufacturingInspection[
+        from GenerativeDesignOptimization
+        to Inspection
+        forward manufacturingInspection
+    ]
     relation entity Objective[
         from GenerativeDesignOptimization
         to MinimizeMass
@@ -168,7 +183,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     /*****************************************************************************************************/
     /**********************************separate line*****************************************************/
     @dc:title "Mounting Bracket"
-    concept MountingBracket
+    concept ThermalAnalysis :> MountingBracket
     concept ThermalLoads
     concept ThermoelasticPointingDev
     concept HeatLoss
@@ -191,17 +206,17 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     ]
     //Mounting Bracket Relation
     relation entity LoadingCond[
-        from MountingBracket
+        from ThermalAnalysis
         to ThermalLoads
         forward loadingCond
     ]
     relation entity DesignReq[
-        from MountingBracket
+        from ThermalAnalysis
         to ThermoelasticPointingDev
         forward designReq
     ]
     relation entity DesignReqHeatLoss[
-        from MountingBracket
+        from ThermalAnalysis
         to HeatLoss
         forward designReqHeatLoss
     ]
@@ -209,13 +224,14 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     /*****************************************************************************************************/
     /**********************************separate line*****************************************************/
     @dc:title "Topology Optimization"
-    concept TopologyOptimization
+    concept TopologyOptimization :> MountingBracket
     concept Gravity
     concept FrequencyConstraint
     concept Load 
     concept MaxFrequency
     concept TopoMaxStiffness
     concept TopoMinMass
+    concept TopoFixture
     //Topology Optimization Property
     scalar property Status[
         domain Gravity
@@ -240,6 +256,10 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     scalar property Safety[
     	domain TopoMinMass
     	range xsd:string
+    ]
+    scalar property DegreesOfFredom[
+        domain TopoFixture
+        range xsd:string
     ]
     //Topology Optimization Relation
     relation entity TopoLoadCon[
@@ -272,5 +292,10 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     	from TopologyOptimization
     	to TopoMinMass
     	forward topominmass
+    ]
+    relation entity BoundaryCond[
+        from Fixtures
+        to TopologyOptimization
+        forward boundaryCond
     ]
 }
