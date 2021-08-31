@@ -6,7 +6,22 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     extends <http://imce.jpl.nasa.gov/foundation/analysis>
     
     //start point
-    aspect MountingBracket
+    concept MountingBracket
+    relation entity R2[
+        from MountingBracket
+        to GenerativeDesignOptimization
+        forward r2
+    ]
+     relation entity R3[
+        from MountingBracket
+        to TopologyOptimization
+        forward r3
+    ]
+     relation entity R4[
+        from MountingBracket
+        to ThermalAnalysis
+        forward r4
+    ]
     @dc:title "Generative Design Optimization"
     concept GenerativeDesignOptimization :> MountingBracket
     concept StaticLoad
@@ -72,11 +87,11 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
         domain Ti6a4v
         range xsd:int
     ]
-    scalar property ThermalConductivity[
+    scalar property ThermalConductivity6a4v[
         domain Ti6a4v
         range xsd:string
     ]
-    scalar property ThermalDiffusivity[
+    scalar property ThermalDiffusivity6a4v[
         domain Ti6a4v
         range  xsd:string
     ]
@@ -298,4 +313,67 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
         to TopologyOptimization
         forward boundaryCond
     ]
+     /*****************************************************************************************************/
+    /**********************************separate line*****************************************************/
+    // general requirement
+    concept GeneralRequirement
+    concept MinPointDiv
+    concept MinMemberSiz
+    concept OverallThermalLoss
+    concept StrucYield
+    concept StruBuckle
+    concept BaseInterfaceSlippage
+    concept FoundamentalFrequency
+    concept InstrumentSlippage
+    //property
+    scalar property LimitFactorSafetyDiv[
+        domain MinPointDiv
+        range xsd:string
+    ]
+    scalar property LimitFactorSafetySize[
+        domain MinMemberSiz
+        range xsd:string
+    ]
+    //relation
+    relation entity StructuralYield[
+        from GeneralRequirement
+        to StrucYield
+        forward structuralyield
+    ]
+    relation entity StructuralBuckle[
+        from GeneralRequirement
+        to StruBuckle
+        forward structuralbuckle
+    ]
+    relation entity BaseInterface[
+        from GeneralRequirement
+        to BaseInterfaceSlippage
+        forward baseinterface
+    ]
+    relation entity FoundmentalFre[
+        from GeneralRequirement
+        to FoundamentalFrequency
+        forward entryfrequency
+    ]
+    relation entity InstruSlippage[
+        from GeneralRequirement
+        to InstrumentSlippage
+        forward instruslippage
+    ]
+    relation entity MinObjective[
+        from GeneralRequirement
+        to MinPointDiv
+        forward minobjective
+    ]
+    relation entity MinMemberObjective[
+        from GeneralRequirement
+        to MinMemberSiz
+        forward minosizebjective
+    ]
+    relation entity ObjectiveOverallLoss[
+        from GeneralRequirement
+        to OverallThermalLoss
+        forward objectiveoverallheatloss
+    ]
+    
 }

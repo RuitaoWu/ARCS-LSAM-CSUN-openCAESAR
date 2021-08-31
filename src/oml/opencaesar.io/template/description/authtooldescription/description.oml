@@ -2,10 +2,21 @@
 description <http://opencaesar.io/template/description/authtooldescription/description> with # as authdescription {
 
 	uses <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies>
-
+	ci MountingBracket : disciplinevocabularies:MountingBracket
 	@dc:title "Generative Design Optimization Concept Instance"
 	ci GenerativeDesignOptimization : disciplinevocabularies:GenerativeDesignOptimization
-
+	ri R2 : disciplinevocabularies:R2[
+		from authdescription:MountingBracket
+		to authdescription:GenerativeDesignOptimization
+	]
+	ri R3 : disciplinevocabularies:R3[
+		from authdescription:MountingBracket
+		to authdescription:TopologyOptimization
+	]
+	ri R4 : disciplinevocabularies:R4[
+		from authdescription:MountingBracket
+		to authdescription:ThermalAnalysis
+	]
 	ci StaticLoad : disciplinevocabularies:StaticLoad [
 				disciplinevocabularies:Magnitude "Sample: 2000"
 				disciplinevocabularies:Direction "Sample: X"
@@ -30,15 +41,15 @@ description <http://opencaesar.io/template/description/authtooldescription/descr
 		disciplinevocabularies:YoungModulus "test"
 		disciplinevocabularies:PoissonRatio 1.11
 		disciplinevocabularies:Density 100.1
-		disciplinevocabularies:ThermalConductivity "test"
-		disciplinevocabularies:ThermalDiffusivity "test"
+		disciplinevocabularies:ThermalConductivity6a4v "test"
+		disciplinevocabularies:ThermalDiffusivity6a4v "test"
 	]
 	ci Al6061 : disciplinevocabularies:Al6061[
 		disciplinevocabularies:YoungModulus "test"
 		disciplinevocabularies:PoissonRatio 2.22
 		disciplinevocabularies:Density 111
-		disciplinevocabularies:ThermalConductivity "test"
-		disciplinevocabularies:ThermalDiffusivity "test"
+		disciplinevocabularies:ThermalConductivity6061 "test"
+		disciplinevocabularies:ThermalDiffusivity6061 "test"
 	]
 	ci MinimizeMass : disciplinevocabularies:MinimizeMass[
 		disciplinevocabularies:MinMassLimit "test"
@@ -90,7 +101,7 @@ description <http://opencaesar.io/template/description/authtooldescription/descr
 	]
 	//******************************************seperate line**********************************************************************
 	@dc:title "Mounting Bracket Concept Instance"
-	ci MountingBracket : disciplinevocabularies:MountingBracket
+	ci ThermalAnalysis : disciplinevocabularies:ThermalAnalysis
 	ci ThermalLoads : disciplinevocabularies:ThermalLoads[
 		disciplinevocabularies:TrackerTemp 11.11
 		disciplinevocabularies:MountsTemp	12.11
@@ -101,17 +112,33 @@ description <http://opencaesar.io/template/description/authtooldescription/descr
 	ci HeatLoss : disciplinevocabularies:HeatLoss[
 		disciplinevocabularies:HeatTransThroughMounts 111
 	]
+	ci ThermalAl6061 : disciplinevocabularies:Al6061[
+		disciplinevocabularies:ThermalConductivity6061 "test"
+		disciplinevocabularies:ThermalDiffusivity6061 "test"
+	]
+	ci ThermalTi6a4v : disciplinevocabularies:Ti6a4v[
+		disciplinevocabularies:ThermalConductivity6a4v "test"
+		disciplinevocabularies:ThermalDiffusivity6a4v "test"
+	]
 	//Mounting Bracket Relation
+	ri Material6061 : disciplinevocabularies:MaterialAl6061[
+		from authdescription:ThermalAnalysis
+		to authdescription:ThermalAl6061
+	]
+	ri Material6a4v : disciplinevocabularies:Material[
+		from authdescription:ThermalAnalysis
+		to authdescription:ThermalTi6a4v
+	]
 	ri LoadingCond : disciplinevocabularies:LoadingCond[
-		from authdescription:MountingBracket
+		from authdescription:ThermalAnalysis
 		to authdescription:ThermalLoads
 	]
 	ri DesignReq : disciplinevocabularies:DesignReq[
-		from authdescription:MountingBracket
+		from authdescription:ThermalAnalysis
 		to authdescription:ThermoelasticPoiDev
 	]
 	ri DesignReqHeatLoss : disciplinevocabularies:DesignReqHeatLoss[
-		from authdescription:MountingBracket
+		from authdescription:ThermalAnalysis
 		to authdescription:HeatLoss
 	]
 	//******************************************seperate line**********************************************************************
@@ -133,15 +160,15 @@ description <http://opencaesar.io/template/description/authtooldescription/descr
 		disciplinevocabularies:YoungModulus "test"
 		disciplinevocabularies:PoissonRatio 1.11
 		disciplinevocabularies:Density 100.1
-		disciplinevocabularies:ThermalConductivity "test"
-		disciplinevocabularies:ThermalDiffusivity "test"
+		disciplinevocabularies:ThermalConductivity6a4v "test"
+		disciplinevocabularies:ThermalDiffusivity6a4v "test"
 	]
 	ci TopoAl6061 : disciplinevocabularies:Al6061[
 		disciplinevocabularies:YoungModulus "test"
 		disciplinevocabularies:PoissonRatio 2.22
 		disciplinevocabularies:Density 111
-		disciplinevocabularies:ThermalConductivity "test"
-		disciplinevocabularies:ThermalDiffusivity "test"
+		disciplinevocabularies:ThermalConductivity6061 "test"
+		disciplinevocabularies:ThermalDiffusivity6061 "test"
 	]
 	ci TopoMaxFrequency : disciplinevocabularies:MaxFrequency
 	ci TopoMinimizeMass : disciplinevocabularies:TopoMinMass[
