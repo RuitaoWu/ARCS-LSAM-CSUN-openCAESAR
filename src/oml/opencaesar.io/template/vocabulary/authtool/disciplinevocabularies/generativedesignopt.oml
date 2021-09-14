@@ -1,0 +1,161 @@
+vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/generativedesignopt> with # as generativedesignopt{
+    extends <http://imce.jpl.nasa.gov/foundation/project>
+    extends <http://imce.jpl.nasa.gov/foundation/base>
+    extends <http://imce.jpl.nasa.gov/foundation/mission>
+    extends <http://imce.jpl.nasa.gov/foundation/analysis>
+    @dc:title "Generative Design Optimization"
+    concept GenerativeDesignOptimization
+    concept StaticLoad
+    concept Fixtures
+    concept RepresentativeLoad
+    concept Geometry
+    concept Ti6a4v
+    concept Al6061
+    concept Method
+    concept MinimizeMass
+    concept MaximizeStiffness
+    concept Inspection
+    //Generative Design Optimization Property
+    scalar property StaticDirection[
+        domain RepresentativeLoad
+        range xsd:string
+    ]
+    scalar property StaticMagnitude[
+        domain RepresentativeLoad
+        range xsd:int
+    ]
+    scalar property Magnitude[
+        domain StaticLoad
+        range xsd:int
+    ]
+    scalar property Direction[
+        domain StaticLoad
+        range xsd:string
+    ]
+    scalar property DegreeOfFreedom[
+        domain Fixtures
+        range xsd:string
+    ]
+    scalar property Obstacle[
+        domain Geometry
+        range xsd:string
+    ]
+    scalar property Preserve[
+        domain Geometry
+        range xsd:string
+    ]
+    scalar property OptimizedSpace[
+        domain Geometry
+        range xsd:string
+    ]
+    scalar property Yield[
+        domain Ti6a4v
+        range  xsd:string
+    ]
+    scalar property Ultimate[
+        domain Ti6a4v
+        range xsd:string
+    ]
+    scalar property YoungModulus[
+        domain Ti6a4v
+        range xsd:string
+    ]
+    scalar property PoissonRatio[
+        domain Ti6a4v
+        range xsd:float
+    ]
+    scalar property Density[
+        domain Ti6a4v
+        range xsd:int
+    ]
+  
+     scalar property YoungModulus6061[
+        domain Al6061
+        range xsd:string
+    ]
+    scalar property PoissonRatio6061[
+        domain Al6061
+        range xsd:float
+    ]
+    scalar property Density6061[
+        domain Al6061
+        range xsd:int
+    ]
+    scalar property LimitFactorOfSafety[
+        domain MinimizeMass
+        range xsd:string
+    ]
+    scalar property Limit1FactorOfSafety[
+        domain MaximizeStiffness
+        range xsd:string
+    ]
+    scalar property Limit2MassTarget[
+        domain MaximizeStiffness
+        range xsd:string
+    ]
+    scalar property Roughness[
+        domain Inspection
+        range xsd:string
+    ]
+    scalar property Tolerance[
+        domain Inspection
+        range xsd:string
+    ]
+    scalar property AdditiveManufacturing[
+        domain Method
+        range xsd:string
+    ]
+
+    ///
+    ///
+    relation entity BoundaryConditions[
+        from GenerativeDesignOptimization
+        to StaticLoad
+        forward boundaryconditions
+    ]
+    relation entity BoundaryConditionsFixtures[
+        from GenerativeDesignOptimization
+        to Fixtures
+        forward boundaryConditionsFixtures
+    ]
+    relation entity BoundaryCondRepresentative[
+        from GenerativeDesignOptimization
+        to RepresentativeLoad
+        forward boundaryCondRepresentative
+    ]
+    relation entity Body[
+        from GenerativeDesignOptimization
+        to Geometry
+        forward body
+    ]
+    relation entity Material[
+        from GenerativeDesignOptimization
+        to Ti6a4v
+        forward material
+    ]
+    relation entity MaterialAl6061[
+        from GenerativeDesignOptimization
+        to Al6061
+        forward materialAl6061
+    ]
+    relation entity Manufacturing[
+        from GenerativeDesignOptimization
+        to Method
+        forward manufacturing
+    ]
+    relation entity ManufacturingInspection[
+        from GenerativeDesignOptimization
+        to Inspection
+        forward manufacturingInspection
+    ]
+    relation entity Objective[
+        from GenerativeDesignOptimization
+        to MinimizeMass
+        forward objective
+    ]
+    relation entity ObjectiveMaxStiffness[
+        from GenerativeDesignOptimization
+        to MaximizeStiffness
+        forward objectiveMaxStiffness
+    ]
+}

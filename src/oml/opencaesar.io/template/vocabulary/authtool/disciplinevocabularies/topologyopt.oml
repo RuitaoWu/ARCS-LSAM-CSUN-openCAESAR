@@ -1,0 +1,139 @@
+vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/topologyopt> with # as topologyopt{
+    extends <http://imce.jpl.nasa.gov/foundation/project>
+    extends <http://imce.jpl.nasa.gov/foundation/base>
+    extends <http://imce.jpl.nasa.gov/foundation/mission>
+    extends <http://imce.jpl.nasa.gov/foundation/analysis>
+    concept TopologyOptimization 
+    concept Gravity
+    concept Load 
+    concept MaxFrequency
+    concept MaxStiffness
+    concept MinMass
+    concept Fixtures
+     concept Ti6a4v
+    concept Al6061
+    concept Geometry
+    //Topology Optimization Property
+    scalar property Status[
+        domain Gravity
+        range xsd:boolean
+    ]
+    scalar property LoadDir[
+    	domain Load
+    	range xsd:string
+    ]
+    scalar property LoadMagnitude[
+    	domain Load
+    	range xsd:int 
+    ]
+    scalar property PercentTotalVolum[
+    	domain MaxStiffness
+    	range xsd:float
+    ]
+    scalar property Safety[
+    	domain MinMass
+    	range xsd:string
+    ]
+    scalar property DegreesOfFredom[
+        domain Fixtures
+        range xsd:string
+    ]scalar property Yield[
+        domain Ti6a4v
+        range  xsd:string
+    ]
+    scalar property Ultimate[
+        domain Ti6a4v
+        range xsd:string
+    ]
+    scalar property YoungModulus[
+        domain Ti6a4v
+        range xsd:string
+    ]
+    scalar property PoissonRatio[
+        domain Ti6a4v
+        range xsd:float
+    ]
+    scalar property Density[
+        domain Ti6a4v
+        range xsd:int
+    ]
+    scalar property ThermalConductivity6a4v[
+        domain Ti6a4v
+        range xsd:string
+    ]
+    scalar property ThermalDiffusivity6a4v[
+        domain Ti6a4v
+        range  xsd:string
+    ]
+     scalar property YoungModulus6061[
+        domain Al6061
+        range xsd:string
+    ]
+    scalar property PoissonRatio6061[
+        domain Al6061
+        range xsd:float
+    ]
+    scalar property Density6061[
+        domain Al6061
+        range xsd:int
+    ]
+    scalar property ThermalConductivity6061[
+        domain Al6061
+        range xsd:string
+    ]
+    scalar property ThermalDiffusivity6061[
+        domain Al6061
+        range  xsd:string
+    ]
+    scalar property Environment[
+        domain Geometry
+        range xsd:string
+    ]
+    //Topology Optimization Relation
+    relation entity TopoLoadCon[
+    	from TopologyOptimization
+        to Load
+        forward topoLoadCon
+    ]
+    
+    relation entity Force[
+        from TopologyOptimization
+        to Gravity
+        forward force
+    ]
+    relation entity ObjectiveFrequency[
+    	from TopologyOptimization
+    	to MaxFrequency
+    	forward objectiveFrequency
+    ]
+    relation entity ObjectiveStiffness[
+    	from TopologyOptimization
+    	to MaxStiffness
+    	forward objectiveStiffness
+    ]
+    relation entity ObjectiveMinMass[
+    	from TopologyOptimization
+    	to MinMass
+    	forward objectiveMinMass
+    ]
+    relation entity BoundaryCond[
+        from TopologyOptimization
+        to Fixtures
+        forward boundaryCond
+    ]
+     relation entity Material[
+        from TopologyOptimization
+        to Ti6a4v
+        forward material
+    ]
+    relation entity MaterialAl6061[
+        from TopologyOptimization
+        to Al6061
+        forward materialAl6061
+    ]
+    relation entity Body[
+        from TopologyOptimization
+        to Geometry
+        forward body
+    ]
+}

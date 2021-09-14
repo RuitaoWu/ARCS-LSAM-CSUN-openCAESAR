@@ -69,6 +69,10 @@
     <semanticResources>src/oml/opencaesar.io/template/vocabulary/bundle.oml</semanticResources>
     <semanticResources>src/oml/opencaesar.io/template/vocabulary/caesarservice.oml</semanticResources>
     <semanticResources>src/oml/opencaesar.io/template/vocabulary/designdevelop.oml</semanticResources>
+    <semanticResources>src/oml/opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/generativedesignopt.oml</semanticResources>
+    <semanticResources>src/oml/opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/mountingbracket.oml</semanticResources>
+    <semanticResources>src/oml/opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/thermalanalysis.oml</semanticResources>
+    <semanticResources>src/oml/opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/topologyopt.oml</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_pBPdoPIhEeu1xNzwqa9lAw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/io.opencaesar.rosetta.sirius.viewpoint/description/oml.odesign#//@ownedViewpoints[name='Vocabularies']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_nBNZggQ-Eeybpb4e7bNHcg" name="Vocabulary Diagram" repPath="#_nBNZgAQ-Eeybpb4e7bNHcg" changeId="5c1f7200-83a7-4d9b-9ec5-da641672e0f8">

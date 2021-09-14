@@ -1,0 +1,7 @@
+vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/mountingbracket> with # as mountingbracket{
+    extends <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/generativedesignopt>
+    extends <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/thermalanalysis>
+    extends <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/topologyopt>
+    concept MountingBracket
+    
+}
