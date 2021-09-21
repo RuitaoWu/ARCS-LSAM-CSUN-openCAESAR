@@ -1,227 +1,213 @@
 @dc:title "Discipline Description"
 description <http://opencaesar.io/template/description/authtooldescription/description> with # as authdescription {
 
-	uses <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies>
-	ci MountingBracket : disciplinevocabularies:MountingBracket
+	uses <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/mountingbracket>
+	ci MountingBracket : mountingbracket:MountingBracket
 	@dc:title "Generative Design Optimization Concept Instance"
-	ci GenerativeDesignOptimization : disciplinevocabularies:GenerativeDesignOptimization
-	ri R2 : disciplinevocabularies:R2[
+	ci GenerativeDesignOptimization : generativedesignopt:GenerativeDesignOptimization
+	ri R2[
 		from authdescription:MountingBracket
 		to authdescription:GenerativeDesignOptimization
 	]
-	ri R3 : disciplinevocabularies:R3[
+	ri R3 [
 		from authdescription:MountingBracket
 		to authdescription:TopologyOptimization
 	]
-	ri R4 : disciplinevocabularies:R4[
+	ri R4 [
 		from authdescription:MountingBracket
 		to authdescription:ThermalAnalysis
 	]
-	ci StaticLoad : disciplinevocabularies:StaticLoad [
-				disciplinevocabularies:Magnitude "Sample: 2000"
-				disciplinevocabularies:Direction "Sample: X"
+	ci StaticLoad : generativedesignopt:StaticLoad[
+				generativedesignopt:Magnitude "Sample: 2000"
+				generativedesignopt:Direction "Sample: X"
 	]
 
-	ci RepresentativeLoad : disciplinevocabularies:RepresentativeLoad [
-			disciplinevocabularies:Magnitude "Sample 2000"
-			disciplinevocabularies:Direction "Sample: y"
+	ci RepresentativeLoad : generativedesignopt:RepresentativeLoad [
+			generativedesignopt:Magnitude "Sample 2000"
+			generativedesignopt:Direction "Sample: y"
 	]
 
-	ci Fixtures : disciplinevocabularies:Fixtures [
-		disciplinevocabularies:DegreeOfFreedom "degree of freedom"
+	ci Fixtures : generativedesignopt:Fixtures [
+		generativedesignopt:DegreeOfFreedom "degree of freedom"
 	]
-	ci Geometry : disciplinevocabularies:Geometry[
-		disciplinevocabularies:Obstacle "obstacle"
-		disciplinevocabularies:Preserve "preserve"
-		disciplinevocabularies:OptimizedSpace " optimized space"
+	ci Geometry : generativedesignopt:Geometry[
+		generativedesignopt:Obstacle "obstacle"
+		generativedesignopt:Preserve "preserve"
+		generativedesignopt:OptimizedSpace " optimized space"
 	]
-	ci Ti6a4v : disciplinevocabularies:Ti6a4v[
-		disciplinevocabularies:Yield "Test"
-		disciplinevocabularies:Ultimate "test"
-		disciplinevocabularies:YoungModulus "test"
-		disciplinevocabularies:PoissonRatio 1.11
-		disciplinevocabularies:Density 100.1
-		disciplinevocabularies:ThermalConductivity6a4v "test"
-		disciplinevocabularies:ThermalDiffusivity6a4v "test"
+	ci Ti6a4v : generativedesignopt:Ti6a4v[
+		generativedesignopt:Yield "Test"
+		generativedesignopt:Ultimate "test"
+		generativedesignopt:YoungModulus "test"
+		generativedesignopt:PoissonRatio 1.11
+		generativedesignopt:Density 100.1
 	]
-	ci Al6061 : disciplinevocabularies:Al6061[
-		disciplinevocabularies:YoungModulus "test"
-		disciplinevocabularies:PoissonRatio 2.22
-		disciplinevocabularies:Density 111
-		disciplinevocabularies:ThermalConductivity6061 "test"
-		disciplinevocabularies:ThermalDiffusivity6061 "test"
+	ci Al6061 : generativedesignopt:Al6061[
+		generativedesignopt:YoungModulus "test"
+		generativedesignopt:PoissonRatio 2.22
+		generativedesignopt:Density 111
+
 	]
-	ci MinimizeMass : disciplinevocabularies:MinimizeMass[
-		disciplinevocabularies:MinMassLimit "test"
+	ci MinimizeMass : generativedesignopt:MinimizeMass[
+		generativedesignopt:LimitFactorOfSafety "Test"
 	]
-	ci MaxStiffness : disciplinevocabularies:MaximizeStiffness[
-		disciplinevocabularies:MaxStifnessLimit "test"
-		disciplinevocabularies:MaxStifnessMassTarget "test"
+	ci MaxStiffness : generativedesignopt:MaximizeStiffness[
+		generativedesignopt:Limit1FactorOfSafety "Test"
+		generativedesignopt:Limit2MassTarget "Test"
 	]
-	ci Method : disciplinevocabularies:Method[
-		disciplinevocabularies:AdditiveManufacturing "test"
+	ci Method : generativedesignopt:Method[
+		generativedesignopt:AdditiveManufacturing "test"
 	]
 	@dc:title "Generative Design Optimization Concept Instance relation"
 	@dc:^description "Connect two concept instance through the realtion"
-	ri BoundaryCond : disciplinevocabularies:BoundaryConditions [
+	ri BoundaryCond : generativedesignopt:BoundaryConditions [
 		from authdescription:GenerativeDesignOptimization
 		to authdescription:StaticLoad
 	]
-	ri BoundaryCondFixtures : disciplinevocabularies:BoundaryConditions [
+	ri BoundaryCondFixtures : generativedesignopt:BoundaryConditions [
 		from authdescription:GenerativeDesignOptimization
 		to authdescription:Fixtures
 	]
-	ri BoundaryCondRepresentativeLoad : disciplinevocabularies:BoundaryCondRepresentative[
+	ri BoundaryCondRepresentativeLoad : generativedesignopt:BoundaryCondRepresentative[
 		from authdescription:GenerativeDesignOptimization
 		to RepresentativeLoad
 	]
-	ri Body : disciplinevocabularies:Body[
+	ri Body : generativedesignopt:Body[
 		from authdescription:GenerativeDesignOptimization
 		to authdescription:Geometry
 	]
-	ri Material : disciplinevocabularies:Material[
+	ri Material : generativedesignopt:Material[
 		from authdescription:GenerativeDesignOptimization
 		to authdescription:Ti6a4v
 	]
-	ri MaterialAl6061 : disciplinevocabularies:MaterialAl6061[
+	ri MaterialAl6061 : generativedesignopt:MaterialAl6061[
 		from authdescription:GenerativeDesignOptimization
 		to authdescription:Al6061
 	]
-	ri Objective : disciplinevocabularies:Objective [
+	ri Objective : generativedesignopt:Objective [
 		from authdescription:GenerativeDesignOptimization
 		to authdescription:MinimizeMass
 	]
-	ri ObjectiveStiffness : disciplinevocabularies:ObjectiveMaxStiffness[
+	ri ObjectiveStiffness : generativedesignopt:ObjectiveMaxStiffness[
 		from authdescription:GenerativeDesignOptimization
 		to authdescription:MaxStiffness
 	]
-	ri Manufacturing : disciplinevocabularies:Manufacturing[
+	ri Manufacturing : generativedesignopt:Manufacturing[
 		from authdescription:GenerativeDesignOptimization
 		to authdescription:Method
 	]
 	//******************************************seperate line**********************************************************************
 	@dc:title "Mounting Bracket Concept Instance"
-	ci ThermalAnalysis : disciplinevocabularies:ThermalAnalysis
-	ci ThermalLoads : disciplinevocabularies:ThermalLoads[
-		disciplinevocabularies:TrackerTemp 11.11
-		disciplinevocabularies:MountsTemp	12.11
+	ci ThermalAnalysis :thermalanalysis:ThermalAnalysis
+	ci ThermalLoads : thermalanalysis:ThermalLoads[
+		thermalanalysis:TrackerTemp 11.11
+		thermalanalysis:MountsTemp	12.11
 	]
-	ci ThermoelasticPoiDev : disciplinevocabularies:ThermoelasticPointingDev[
-		disciplinevocabularies:CenterlinePosi "middle"
+	ci ThermoelasticPoiDev : thermalanalysis:ThermoelasticPointingDev[
+		thermalanalysis:CenterlinePosi "middle"
 	]
-	ci HeatLoss : disciplinevocabularies:HeatLoss[
-		disciplinevocabularies:HeatTransThroughMounts 111
+	ci HeatLoss : thermalanalysis:HeatLoss[
+		thermalanalysis:HeatTransThroughMounts 111
 	]
-	ci ThermalAl6061 : disciplinevocabularies:Al6061[
-		disciplinevocabularies:ThermalConductivity6061 "test"
-		disciplinevocabularies:ThermalDiffusivity6061 "test"
+	ci ThermalAl6061 : thermalanalysis:Al6061[
+		thermalanalysis:ThermalConductivity6061 "test"
+		thermalanalysis:ThermalDiffusivity6061 "test"
 	]
-	ci ThermalTi6a4v : disciplinevocabularies:Ti6a4v[
-		disciplinevocabularies:ThermalConductivity6a4v "test"
-		disciplinevocabularies:ThermalDiffusivity6a4v "test"
+	ci ThermalTi6a4v : thermalanalysis:Ti6a4v[
+		thermalanalysis:ThermalConductivity "test"
+		thermalanalysis:ThermalDiffusivity "test"
 	]
 	//Mounting Bracket Relation
-	ri Material6061 : disciplinevocabularies:MaterialAl6061[
+	ri Material6061 : thermalanalysis:Material[
 		from authdescription:ThermalAnalysis
 		to authdescription:ThermalAl6061
 	]
-	ri Material6a4v : disciplinevocabularies:Material[
+	ri Material6a4v : thermalanalysis:Material[
 		from authdescription:ThermalAnalysis
 		to authdescription:ThermalTi6a4v
 	]
-	ri LoadingCond : disciplinevocabularies:LoadingCond[
+	ri LoadingCond : thermalanalysis:LoadingCond[
 		from authdescription:ThermalAnalysis
 		to authdescription:ThermalLoads
 	]
-	ri DesignReq : disciplinevocabularies:DesignReq[
+	ri DesignReq : thermalanalysis:DesignReq[
 		from authdescription:ThermalAnalysis
 		to authdescription:ThermoelasticPoiDev
 	]
-	ri DesignReqHeatLoss : disciplinevocabularies:DesignReqHeatLoss[
+	ri DesignReqHeatLoss : thermalanalysis:DesignReqHeatLoss[
 		from authdescription:ThermalAnalysis
 		to authdescription:HeatLoss
 	]
 	//******************************************seperate line**********************************************************************
 	@dc:title "Topology Optimization Concept Instance"
-	ci TopologyOptimization : disciplinevocabularies:TopologyOptimization
-	ci TopoGeometry : disciplinevocabularies:Geometry[
-		disciplinevocabularies:Envir "Design Space"
+	ci TopologyOptimization : topologyopt:TopologyOptimization
+	ci TopoGeometry : topologyopt:Geometry[
+		topologyopt:Environment "Design Space"
 	]
-	ci Load : disciplinevocabularies:Load[
-		disciplinevocabularies:LoadDir "X"
-		disciplinevocabularies:LoadMagnitude 222
+	ci Load : topologyopt:Load[
+		topologyopt:LoadDir "X"
+		topologyopt:LoadMagnitude 222
 	]
-	ci TopoFixtures : disciplinevocabularies:Fixtures[
-		disciplinevocabularies:DegreeOfFreedom "Test Message"
+	ci TopoFixtures : topologyopt:Fixtures[
+		topologyopt:DegreesOfFredom "Test Message"
 	]
-	ci TopoTi6a4v : disciplinevocabularies:Ti6a4v[
-		disciplinevocabularies:Yield "Test"
-		disciplinevocabularies:Ultimate "test"
-		disciplinevocabularies:YoungModulus "test"
-		disciplinevocabularies:PoissonRatio 1.11
-		disciplinevocabularies:Density 100.1
-		disciplinevocabularies:ThermalConductivity6a4v "test"
-		disciplinevocabularies:ThermalDiffusivity6a4v "test"
+	ci TopoTi6a4v : topologyopt:Ti6a4v[
+		topologyopt:Yield "Test"
+		topologyopt:Ultimate "test"
+		topologyopt:YoungModulus "test"
+		topologyopt:PoissonRatio 1.11
+		topologyopt:Density 100.1
 	]
-	ci TopoAl6061 : disciplinevocabularies:Al6061[
-		disciplinevocabularies:YoungModulus "test"
-		disciplinevocabularies:PoissonRatio 2.22
-		disciplinevocabularies:Density 111
-		disciplinevocabularies:ThermalConductivity6061 "test"
-		disciplinevocabularies:ThermalDiffusivity6061 "test"
+	ci TopoAl6061 : topologyopt:Al6061[
+		topologyopt:YoungModulus "test"
+		topologyopt:PoissonRatio 2.22
+		topologyopt:Density 111
 	]
-	ci TopoMaxFrequency : disciplinevocabularies:MaxFrequency
-	ci TopoMinimizeMass : disciplinevocabularies:TopoMinMass[
-		disciplinevocabularies:Safety "Test"
+	ci TopoMaxFrequency : topologyopt:MaxFrequency
+	ci TopoMinimizeMass : topologyopt:MinMass[
+		topologyopt:Safety "Test"
 	]
-	ci TopoMaxStiffness : disciplinevocabularies:TopoMaxStiffness[
-		disciplinevocabularies:PercentTotalVolum 6.6
+	ci TopoMaxStiffness : topologyopt:MaxStiffness[
+		topologyopt:PercentTotalVolum 6.6
 	]
-	ci Gravity : disciplinevocabularies:Gravity[
-		disciplinevocabularies:Status true
-	]
-	ci FrequencyCons : disciplinevocabularies:FrequencyConstraint[
-		disciplinevocabularies:Hz 11111
+	ci Gravity : topologyopt:Gravity[
+		topologyopt:Status true
 	]
 	//constant instance relation topology opt
-	ri TopoBody : disciplinevocabularies:Body[
+	ri TopoBody : topologyopt:Body[
 		from authdescription:TopologyOptimization
 		to authdescription:TopoGeometry
 	]
-	ri TopoBoundaryCond : disciplinevocabularies:TopoLoadCon [
+	ri TopoBoundaryCond : topologyopt:TopoLoadCon [
 		from authdescription:TopologyOptimization
 		to authdescription:Load
 	]
-	ri TopoBoundaryCondFixtures:disciplinevocabularies:BoundaryConditionsFixtures[
+	ri TopoBoundaryCondFixtures:topologyopt:BoundaryCond[
 		from TopologyOptimization
 		to TopoFixtures
 	]
-	ri TopoMaterial : disciplinevocabularies:Material[
+	ri TopoMaterial : topologyopt:Material[
 		from authdescription:TopologyOptimization
 		to authdescription:TopoTi6a4v
 	]
-	ri TopoMaterial6061 : disciplinevocabularies:MaterialAl6061[
+	ri TopoMaterial6061 : topologyopt:MaterialAl6061[
 		from authdescription:TopologyOptimization
 		to authdescription:TopoAl6061
 	]
-	ri TopoObjective : disciplinevocabularies:TopoMass [
+	ri TopoObjective : topologyopt:ObjectiveMinMass [
 		from authdescription:TopologyOptimization
 		to authdescription:TopoMinimizeMass
 	]
-	ri TopoObjectiveStiffness : disciplinevocabularies:TopoStiffness[
+	ri TopoObjectiveStiffness : topologyopt:ObjectiveStiffness[
 		from authdescription:TopologyOptimization
 		to authdescription:TopoMaxStiffness
 	]
-	ri TopoObjFrequency : disciplinevocabularies:TopoObjectiveFreq[
+	ri TopoObjFrequency : topologyopt:ObjectiveFrequency[
 		from TopologyOptimization
 		to TopoMaxFrequency
 	]
-	ri Force : disciplinevocabularies:Force[
+	ri Force : topologyopt:Force[
 		from TopologyOptimization
 		to Gravity
-	]
-	ri Constraint : disciplinevocabularies:R1[
-		from TopologyOptimization
-		to FrequencyCons
 	]
 }

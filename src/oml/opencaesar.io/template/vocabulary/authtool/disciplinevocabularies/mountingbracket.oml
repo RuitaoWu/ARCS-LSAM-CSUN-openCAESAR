@@ -4,4 +4,5 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     extends <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/topologyopt>
     concept MountingBracket
     
+    
 }
