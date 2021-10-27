@@ -10,7 +10,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     concept MaxStiffness
     concept MinMass
     concept Fixtures
-     concept Ti6a4v
+    concept Ti6a4v
     concept Al6061
     concept Geometry
     //Topology Optimization Property

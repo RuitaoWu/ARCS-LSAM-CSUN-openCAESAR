@@ -1,7 +1,6 @@
-PREFIX vocabulary1:   <http://opencaesar.io/template/vocabulary/vocabulary1#>
+PREFIX voc:   <http://opencaesar.io/template/vocabulary/topologyopt#>
 
-SELECT ?x ?y
-
+SELECT ?album ?x
 WHERE {
-	?x vocabulary1:r ?y
+   ?album voc:contains ?x.
 }
