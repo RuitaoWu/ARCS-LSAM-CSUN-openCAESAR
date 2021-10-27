@@ -57,14 +57,14 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
         domain Ti6a4v
         range xsd:int
     ]
-    scalar property ThermalConductivity6a4v[
-        domain Ti6a4v
-        range xsd:string
-    ]
-    scalar property ThermalDiffusivity6a4v[
-        domain Ti6a4v
-        range  xsd:string
-    ]
+//    scalar property ThermalConductivity6a4v[
+//        domain Ti6a4v
+//        range xsd:string
+//    ]
+//    scalar property ThermalDiffusivity6a4v[
+//        domain Ti6a4v
+//        range  xsd:string
+//    ]
      scalar property YoungModulus6061[
         domain Al6061
         range xsd:string
@@ -77,14 +77,14 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
         domain Al6061
         range xsd:int
     ]
-    scalar property ThermalConductivity6061[
-        domain Al6061
-        range xsd:string
-    ]
-    scalar property ThermalDiffusivity6061[
-        domain Al6061
-        range  xsd:string
-    ]
+//    scalar property ThermalConductivity6061[
+//        domain Al6061
+//        range xsd:string
+//    ]
+//    scalar property ThermalDiffusivity6061[
+//        domain Al6061
+//        range  xsd:string
+//    ]
     scalar property Environment[
         domain Geometry
         range xsd:string
