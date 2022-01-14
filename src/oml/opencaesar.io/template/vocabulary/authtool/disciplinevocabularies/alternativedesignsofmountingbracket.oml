@@ -1,0 +1,54 @@
+vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/alternativedesignsofmountingbracket> with # as alternativedesignsofmountingbracket{
+    extends <http://imce.jpl.nasa.gov/foundation/project>
+    extends <http://imce.jpl.nasa.gov/foundation/base>
+    extends <http://imce.jpl.nasa.gov/foundation/mission>
+    extends <http://imce.jpl.nasa.gov/foundation/analysis>
+
+    aspect GenerativeDesignOfOptimization
+    concept Material
+    concept StaticLoad
+    concept RepresentativeLoad
+    concept Fixtures
+    concept GeometricConstraints
+    concept Processes
+    concept Inspection
+    //attributes
+
+    //relations
+    relation entity Materials[
+        from GenerativeDesignOfOptimization
+        to Material
+        forward materials
+    ]
+    
+    relation entity BoundaryConditions[
+    	from GenerativeDesignOfOptimization
+    	to StaticLoad
+    	forward boundaryConditions
+    ]
+    relation entity BoundaryConditionsRepreLoad[
+    	from GenerativeDesignOfOptimization
+    	to RepresentativeLoad
+    	forward boundaryConditionsRepreLoad
+    ]
+    relation entity BoundaryConditionsFixtures[
+    	from GenerativeDesignOfOptimization
+    	to Fixtures
+    	forward boundaryConditionsFixtures
+    ]
+    relation entity BoundaryConditionsGeoConstrains[
+    	from GenerativeDesignOfOptimization
+    	to GeometricConstraints
+    	forward boundaryConditionsGeoConstrains
+    ]
+    relation entity ManufacturingProcess[
+    	from GenerativeDesignOfOptimization
+    	to Processes
+    	forward manufacturingProcess
+    ]
+    relation entity ManufacturingINspection[
+    	from GenerativeDesignOfOptimization
+    	to Inspection
+    	forward manufacturingINspection
+    ]
+    }
