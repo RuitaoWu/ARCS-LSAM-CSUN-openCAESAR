@@ -3,12 +3,11 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     extends <http://imce.jpl.nasa.gov/foundation/base>
     extends <http://imce.jpl.nasa.gov/foundation/mission>
     extends <http://imce.jpl.nasa.gov/foundation/analysis>
-    concept ThermalAnalysis
+    aspect ThermalAnalysis
+    concept Material
     concept ThermalLoads
     concept ThermoelasticPointingDev
     concept HeatLoss
-    concept Ti6a4v
-    concept Al6061
     //Mounting Bracket Property
     scalar property TrackerTemp[
         domain ThermalLoads
@@ -18,7 +17,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
         domain ThermalLoads
         range xsd:float
     ]
-    scalar property CenterlinePosi[
+    scalar property Centerline[
         domain ThermoelasticPointingDev
         range xsd:string
     ]
@@ -26,46 +25,40 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
         domain HeatLoss
         range xsd:string
     ]
-      scalar property ThermalConductivity[
-        domain Ti6a4v
-        range xsd:string
-    ]
-    scalar property ThermalDiffusivity[
-        domain Ti6a4v
-        range  xsd:string
-    ]
-       scalar property ThermalConductivity6061[
-        domain Al6061
-        range xsd:string
-    ]
-    scalar property ThermalDiffusivity6061[
-        domain Al6061
-        range  xsd:string
-    ]
-    //Mounting Bracket Relation
-    relation entity LoadingCond[
-        from ThermalAnalysis
-        to ThermalLoads
-        forward loadingCond
-    ]
-    relation entity DesignReq[
-        from ThermalAnalysis
-        to ThermoelasticPointingDev
-        forward designReq
-    ]
-    relation entity DesignReqHeatLoss[
-        from ThermalAnalysis
-        to HeatLoss
-        forward designReqHeatLoss
-    ]
-    relation entity Material[
-        from ThermalAnalysis
-        to Al6061
-        forward material
-    ]
-    relation entity Material6a4v[
-        from ThermalAnalysis
-        to Ti6a4v
-        forward material6a4v
-    ]
+	scalar property MaterialType[
+		domain Material
+		range xsd:string
+	]
+	scalar property ThermalConductivity[
+		domain Material
+		range xsd:string
+	]
+	scalar property ThermalDisfusivity[
+		domain Material
+		range xsd:string
+	]
+
+    //Relation
+	relation entity LoadingConditions[
+		from ThermalAnalysis
+		to ThermalLoads
+		forward loadingConditions
+	]
+	relation entity DesignRequirements[
+		from ThermalAnalysis
+		to ThermoelasticPointingDev
+		forward designRequirementsonditions
+	]
+	relation entity DesignRequirementsHeatLoss[
+		from ThermalAnalysis
+		to HeatLoss
+		forward designRequirementsHeatLoss
+	]
+	relation entity Materials[
+		from ThermalAnalysis
+		to Material
+		forward materials
+	]
+  
+
 }

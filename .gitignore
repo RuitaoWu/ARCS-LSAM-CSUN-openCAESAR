@@ -7,3 +7,5 @@ build
 
 # Fuseki output directory
 .fuseki
+
+*.aird

@@ -3,7 +3,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     extends <http://imce.jpl.nasa.gov/foundation/base>
     extends <http://imce.jpl.nasa.gov/foundation/mission>
     extends <http://imce.jpl.nasa.gov/foundation/analysis>
-
+	extends <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/thermalanalysis>
     aspect GenerativeDesignOfOptimization
     concept Material
     concept StaticLoad
@@ -13,7 +13,62 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     concept Processes
     concept Inspection
     //attributes
-
+    scalar property AI[
+    	domain Material
+    	range xsd:string
+    ]
+    scalar property Ti[
+    	domain Material
+    	range xsd:string
+    ]
+    scalar property SS[
+    	domain Material
+    	range xsd:string
+    ]
+    scalar property DirectionStaticLoad[
+    	domain StaticLoad
+    	range xsd:string
+    ]
+    scalar property MagnitudeStaticLoad[
+    	domain StaticLoad
+    	range xsd:string
+    ]
+    scalar property DirectionRepreLoad[
+    	domain RepresentativeLoad
+    	range xsd:string
+    ]
+    scalar property MagnitudeRepreLoad[
+    	domain RepresentativeLoad
+    	range xsd:string
+    ]
+    scalar property DegreeofFredom[
+    	domain Fixtures
+    	range xsd:string
+    ]
+    scalar property Obstacle[
+    	domain GeometricConstraints
+    	range xsd:string
+    ]
+    scalar property Preserve[
+    	domain GeometricConstraints
+    	range xsd:string
+    ]
+    scalar property OptimizedSpace[
+    	domain GeometricConstraints
+    	range xsd:string
+    ]
+    scalar property AdditiveManufacturing[
+    	domain Processes
+    	range xsd:string
+    ]
+    scalar property Roughness[
+    	domain Inspection
+    	range xsd:string
+    ]
+    scalar property Tolerance[
+    	domain Inspection
+    	range xsd:string
+    ]
     //relations
     relation entity Materials[
         from GenerativeDesignOfOptimization

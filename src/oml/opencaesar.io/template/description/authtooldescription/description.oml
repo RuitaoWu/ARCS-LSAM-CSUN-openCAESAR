@@ -13,10 +13,7 @@ description <http://opencaesar.io/template/description/authtooldescription/descr
 		from authdescription:MountingBracket
 		to authdescription:TopologyOptimization
 	]
-	ri R4 [
-		from authdescription:MountingBracket
-		to authdescription:ThermalAnalysis
-	]
+
 	ci StaticLoad : generativedesignopt:StaticLoad[
 				generativedesignopt:Magnitude "Sample: 2000"
 				generativedesignopt:Direction "Sample: X"
@@ -98,46 +95,18 @@ description <http://opencaesar.io/template/description/authtooldescription/descr
 	]
 	//******************************************seperate line**********************************************************************
 	@dc:title "Mounting Bracket Concept Instance"
-	ci ThermalAnalysis :thermalanalysis:ThermalAnalysis
-	ci ThermalLoads : thermalanalysis:ThermalLoads[
-		thermalanalysis:TrackerTemp 11.11
-		thermalanalysis:MountsTemp	12.11
-	]
-	ci ThermoelasticPoiDev : thermalanalysis:ThermoelasticPointingDev[
-		thermalanalysis:CenterlinePosi "middle"
-	]
+	
+
 	ci HeatLoss : thermalanalysis:HeatLoss[
 		thermalanalysis:HeatTransThroughMounts 111
 	]
-	ci ThermalAl6061 : thermalanalysis:Al6061[
-		thermalanalysis:ThermalConductivity6061 "test"
-		thermalanalysis:ThermalDiffusivity6061 "test"
-	]
-	ci ThermalTi6a4v : thermalanalysis:Ti6a4v[
-		thermalanalysis:ThermalConductivity "test"
-		thermalanalysis:ThermalDiffusivity "test"
-	]
+	
+
 	//Mounting Bracket Relation
-	ri Material6061 : thermalanalysis:Material[
-		from authdescription:ThermalAnalysis
-		to authdescription:ThermalAl6061
-	]
-	ri Material6a4v : thermalanalysis:Material[
-		from authdescription:ThermalAnalysis
-		to authdescription:ThermalTi6a4v
-	]
-	ri LoadingCond : thermalanalysis:LoadingCond[
-		from authdescription:ThermalAnalysis
-		to authdescription:ThermalLoads
-	]
-	ri DesignReq : thermalanalysis:DesignReq[
-		from authdescription:ThermalAnalysis
-		to authdescription:ThermoelasticPoiDev
-	]
-	ri DesignReqHeatLoss : thermalanalysis:DesignReqHeatLoss[
-		from authdescription:ThermalAnalysis
-		to authdescription:HeatLoss
-	]
+
+	
+
+
 	//******************************************seperate line**********************************************************************
 	@dc:title "Topology Optimization Concept Instance"
 	ci TopologyOptimization : topologyopt:TopologyOptimization
