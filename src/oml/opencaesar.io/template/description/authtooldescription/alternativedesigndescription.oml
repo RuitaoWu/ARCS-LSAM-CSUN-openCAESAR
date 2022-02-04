@@ -1,0 +1,98 @@
+
+description <http://opencaesar.io/template/description/authtooldescription/alterdescription> with # as alterdescription{
+	
+	uses <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/alternativedesignsofmountingbracket>
+	uses <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/thermalanalysis>
+	ci Filter : alternativedesignsofmountingbracket:Filter
+	ci GenerativeDesignOfMountingBracket : alternativedesignsofmountingbracket:GenerativeDesignOfMountingBracket
+	ci GenerativeDesignOfOptimization : alternativedesignsofmountingbracket:GenerativeDesignOpt
+	ci Material : alternativedesignsofmountingbracket:Material[
+		alternativedesignsofmountingbracket:MaterialType ""
+	]
+	ci StaticLoad : alternativedesignsofmountingbracket:StaticLoad[
+		alternativedesignsofmountingbracket:DirectionStaticLoad ""
+		alternativedesignsofmountingbracket:MagnitudeStaticLoad ""
+	]
+	ci RepresentativeLoad : alternativedesignsofmountingbracket:RepresentativeLoad[
+		alternativedesignsofmountingbracket:DirectionRepreLoad ""
+		alternativedesignsofmountingbracket:MagnitudeRepreLoad ""
+	]
+	ci Fixtures : alternativedesignsofmountingbracket:Fixtures[
+		alternativedesignsofmountingbracket:DegreeofFredom ""
+		alternativedesignsofmountingbracket:Units ""
+	]
+	ci GeometricConstrains : alternativedesignsofmountingbracket:GeometricConstraints[
+		alternativedesignsofmountingbracket:Obstacle ""
+		alternativedesignsofmountingbracket:Preserve ""
+		alternativedesignsofmountingbracket:OptimizedSpace ""
+	]
+	ci Processes : alternativedesignsofmountingbracket:Processes[
+		alternativedesignsofmountingbracket:AdditiveManufacturing ""
+	]
+	ci Inspection : alternativedesignsofmountingbracket:Inspection[
+		alternativedesignsofmountingbracket:Roughness ""
+		alternativedesignsofmountingbracket:Tolerance ""
+	]
+	ri Materials : alternativedesignsofmountingbracket:Materials[
+		from GenerativeDesignOfOptimization
+		to Material
+	]
+	ri BoundaryStaticLoad : alternativedesignsofmountingbracket:BoundaryConditions[
+		from GenerativeDesignOfOptimization
+		to StaticLoad
+	]
+	ri BoundaryRepresentativeLoad : alternativedesignsofmountingbracket:BoundaryConditionsRepreLoad[
+		from GenerativeDesignOfOptimization
+		to RepresentativeLoad
+	]
+	ri BoundaryFixtures : alternativedesignsofmountingbracket:BoundaryConditionsFixtures[
+		from GenerativeDesignOfOptimization
+		to Fixtures
+	]
+	ri BoundaryGeomatric : alternativedesignsofmountingbracket:BoundaryConditionsGeoConstrains[
+		from GenerativeDesignOfOptimization
+		to GeometricConstrains
+	]
+	ri Manufacturing : alternativedesignsofmountingbracket:ManufacturingProcess[
+		from GenerativeDesignOfOptimization
+		to Processes
+	]
+	ri ManufacturingInspection : alternativedesignsofmountingbracket:ManufacturingINspection[
+		from GenerativeDesignOfOptimization
+		to Inspection
+	]
+	//////////thermal analysis
+	ci ThermalAnalysis : thermalanalysis:Thermal
+	ci ThermalLoads : thermalanalysis:ThermalLoads[
+		thermalanalysis:TrackerTemp ""
+		thermalanalysis:MountsTemp ""
+	]
+	ci ThermolasticPointingDeviation : thermalanalysis:ThermoelasticPointingDev[
+		thermalanalysis:Centerline ""
+	]
+	ci HeatLoss : thermalanalysis:HeatLoss[
+		thermalanalysis:HeatTransThroughMounts ""
+	]
+	ci ThermalMaterial : thermalanalysis:Material[
+		thermalanalysis:MaterialType ""
+		thermalanalysis:ThermalConductivity""
+		thermalanalysis:ThermalDisfusivity ""
+	]
+	ri LoadingCondition : thermalanalysis:LoadingConditions[
+		from ThermalAnalysis
+		to ThermalLoads
+	]
+	ri DesignRequir : thermalanalysis:DesignRequirements[
+		from ThermalAnalysis
+		to ThermolasticPointingDeviation
+	]
+	ri DesignRequirHeatLoss : thermalanalysis:DesignRequirementsHeatLoss[
+		from ThermalAnalysis
+		to HeatLoss
+	]
+	ri MaterialThermal : thermalanalysis:Materials[
+		from ThermalAnalysis
+		to ThermalMaterial
+	]
+	
+}

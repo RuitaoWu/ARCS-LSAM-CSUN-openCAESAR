@@ -4,7 +4,9 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     extends <http://imce.jpl.nasa.gov/foundation/mission>
     extends <http://imce.jpl.nasa.gov/foundation/analysis>
 	extends <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/thermalanalysis>
-    aspect GenerativeDesignOfOptimization
+	concept Filter
+	concept GenerativeDesignOfMountingBracket
+    concept GenerativeDesignOpt
     concept Material
     concept StaticLoad
     concept RepresentativeLoad
@@ -13,17 +15,13 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     concept Processes
     concept Inspection
     //attributes
-    scalar property AI[
-    	domain Material
+    scalar property Filters[
+    	domain Filter
     	range xsd:string
     ]
-    scalar property Ti[
+    scalar property MaterialType[
     	domain Material
-    	range xsd:string
-    ]
-    scalar property SS[
-    	domain Material
-    	range xsd:string
+    	range xsd:string 
     ]
     scalar property DirectionStaticLoad[
     	domain StaticLoad
@@ -42,6 +40,10 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     	range xsd:string
     ]
     scalar property DegreeofFredom[
+    	domain Fixtures
+    	range xsd:double
+    ]
+    scalar property Units[
     	domain Fixtures
     	range xsd:string
     ]

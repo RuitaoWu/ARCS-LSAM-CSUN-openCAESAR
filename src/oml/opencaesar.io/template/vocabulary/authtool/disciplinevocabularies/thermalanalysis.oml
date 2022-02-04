@@ -4,6 +4,7 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     extends <http://imce.jpl.nasa.gov/foundation/mission>
     extends <http://imce.jpl.nasa.gov/foundation/analysis>
     aspect ThermalAnalysis
+    concept Thermal :> ThermalAnalysis
     concept Material
     concept ThermalLoads
     concept ThermoelasticPointingDev
