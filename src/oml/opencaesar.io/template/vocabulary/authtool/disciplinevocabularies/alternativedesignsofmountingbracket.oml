@@ -73,38 +73,38 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     ]
     //relations
     relation entity Materials[
-        from GenerativeDesignOfOptimization
+        from GenerativeDesignOpt
         to Material
         forward materials
     ]
     
     relation entity BoundaryConditions[
-    	from GenerativeDesignOfOptimization
+    	from GenerativeDesignOpt
     	to StaticLoad
     	forward boundaryConditions
     ]
     relation entity BoundaryConditionsRepreLoad[
-    	from GenerativeDesignOfOptimization
+    	from GenerativeDesignOpt
     	to RepresentativeLoad
     	forward boundaryConditionsRepreLoad
     ]
     relation entity BoundaryConditionsFixtures[
-    	from GenerativeDesignOfOptimization
+    	from GenerativeDesignOpt
     	to Fixtures
     	forward boundaryConditionsFixtures
     ]
     relation entity BoundaryConditionsGeoConstrains[
-    	from GenerativeDesignOfOptimization
+    	from GenerativeDesignOpt
     	to GeometricConstraints
     	forward boundaryConditionsGeoConstrains
     ]
     relation entity ManufacturingProcess[
-    	from GenerativeDesignOfOptimization
+    	from GenerativeDesignOpt
     	to Processes
     	forward manufacturingProcess
     ]
     relation entity ManufacturingINspection[
-    	from GenerativeDesignOfOptimization
+    	from GenerativeDesignOpt
     	to Inspection
     	forward manufacturingINspection
     ]
