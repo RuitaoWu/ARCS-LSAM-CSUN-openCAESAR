@@ -7,6 +7,7 @@ description bundle <http://opencaesar.io/template/description/bundle> with # as 
 	uses <http://opencaesar.io/template/vocabulary/bundle>
 	
 	// All the descriptions included in this description bundle
-	includes <http://opencaesar.io/template/description/description1>	
-
+	//includes <http://opencaesar.io/template/description/description1>	
+	//opencaesar.io/template/description/authtooldescription/alternativedesigndescription
+	//includes <http://opencaesar.io/template/description/authtooldescription/alternativedesigndescription>
 }

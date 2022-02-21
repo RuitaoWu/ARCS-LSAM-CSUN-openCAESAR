@@ -5,63 +5,73 @@ vocabulary <http://opencaesar.io/template/vocabulary/vocabulary1> with / as voca
 	
 	// The vocabulary bundle used by this description bundle
 	extends <http://www.w3.org/2002/07/owl>
-	aspect OpticalTrackerSystem 
-	aspect FunctionMechanicalRequirements
-	aspect OpticalDevice
-	aspect Mount
-	aspect LSAMGenerativeMount
-	aspect CADModelDigitalTwin
-	aspect FabricatedMetal_3D_PrintedPart
-	aspect ProjectReport
-	aspect AnalysisReport
-	aspect StructuralAnalysis
-	aspect ThermalAnalysis
-	concept Mb :> ThermalAnalysis, AnalysisReport
-	scalar property abc [
-		domain Mb 
-		range xsd:string
-	]
+	// aspect OpticalTrackerSystem 
+	// aspect FunctionMechanicalRequirements
+	// aspect OpticalDevice
+	// aspect Mount
+	// aspect LSAMGenerativeMount
+	// aspect CADModelDigitalTwin
+	// aspect FabricatedMetal_3D_PrintedPart
+	// aspect ProjectReport
+	// aspect AnalysisReport
+	// aspect StructuralAnalysis
+	// aspect ThermalAnalysis
+	// concept Mb :> ThermalAnalysis, AnalysisReport
+	// scalar property abc [
+	// 	domain Mb 
+	// 	range xsd:string
+	// ]
 	// relation entity R1[
 	// 	from LSAM:Mount
 	// 	to FunctionMechanicalRequirements
 	// 	forward r1
 	// ]
+	aspect A
 
-	relation entity Performs[
-		from OpticalTrackerSystem
-		to FunctionMechanicalRequirements
-		forward performs
-		reverse isPerformedBy
-	]
-	relation entity R2[
-		from FunctionMechanicalRequirements
-		to OpticalDevice
-		forward r2
-	]
-	relation entity R3[
-		from FunctionMechanicalRequirements
-		to Mount
-		forward r3
-	]
-	relation entity R4[
-		from Mount
-		to LSAMGenerativeMount
-		forward r4
-	]
-	relation entity R5[
-			from LSAMGenerativeMount
-			to OpticalDevice
-			forward r5
-		]
+	// Example concept
+	concept C :> A
 
-	relation entity R6[
-			from LSAMGenerativeMount
-			to ProjectReport
-			forward r6
-		]
-	relation entity R7[
-		from LSAMGenerativeMount
-		to StructuralAnalysis
-		forward r7
+	// Example relation entity
+	relation entity R [
+		from C
+		to A
+		forward r
 	]
+	// relation entity Performs[
+	// 	from OpticalTrackerSystem
+	// 	to FunctionMechanicalRequirements
+	// 	forward performs
+	// 	reverse isPerformedBy
+	// ]
+	// relation entity R2[
+	// 	from FunctionMechanicalRequirements
+	// 	to OpticalDevice
+	// 	forward r2
+	// ]
+	// relation entity R3[
+	// 	from FunctionMechanicalRequirements
+	// 	to Mount
+	// 	forward r3
+	// ]
+	// relation entity R4[
+	// 	from Mount
+	// 	to LSAMGenerativeMount
+	// 	forward r4
+	// ]
+	// relation entity R5[
+	// 		from LSAMGenerativeMount
+	// 		to OpticalDevice
+	// 		forward r5
+	// 	]
+
+	// relation entity R6[
+	// 		from LSAMGenerativeMount
+	// 		to ProjectReport
+	// 		forward r6
+	// 	]
+	// relation entity R7[
+	// 	from LSAMGenerativeMount
+	// 	to StructuralAnalysis
+	// 	forward r7
+	// ]
 }

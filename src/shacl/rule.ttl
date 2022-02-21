@@ -3,7 +3,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-@prefix vocabulary1: <http://opencaesar.io/template/vocabulary/vocabulary1#> .
+@prefix vocabulary1: <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/alternativedesignsofmountingbracket> .
 
 # The namespace for the shacl shapes ontology
 @prefix shapes: <http://shapes#> .
@@ -15,7 +15,7 @@ shapes:
 	owl:imports sh: ;
 	sh:declare [
 		sh:prefix "vocabulary1" ;
-		sh:namespace "http://opencaesar.io/template/vocabulary/vocabulary1#"^^xsd:anyURI ;
+		sh:namespace "<http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/alternativedesignsofmountingbracket>#"^^xsd:anyURI ;
 	]  ;
 	sh:declare [
 		sh:prefix "rdf" ;

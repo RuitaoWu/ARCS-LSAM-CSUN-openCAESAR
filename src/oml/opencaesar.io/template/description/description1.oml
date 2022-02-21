@@ -1,14 +1,18 @@
 description <http://opencaesar.io/template/description/description1> with # as description1 {
 	
-	// The vocabulary used by this description
-	uses <http://opencaesar.io/template/vocabulary/vocabulary1>
-	//uses <http://opencaesar.io/template/vocabulary/lsam>
-	// ci b : vocabulary1:B
-	 //short hand
-	//ci a :lsam:samp
 	
-	ci sa :vocabulary1:Mb[
-		vocabulary1:abc "hello world"
+	// The vocabulary used by this description
+	uses <http://opencaesar.io/template/vocabulary/vocabulary1> as vocabulary1
+
+	// Example concept instance
+	ci c1 : vocabulary1:C
+	
+	// Example concept instance
+	ci c2 : vocabulary1:C
+	
+	// Example relation instance
+	ri r1 : vocabulary1:R [
+		from c1
+		to c2
 	]
-	ci samone : <http://opencaesar.io/template/vocabulary/vocabulary1/Mb>  
 }

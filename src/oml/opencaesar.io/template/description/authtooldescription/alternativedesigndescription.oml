@@ -1,5 +1,5 @@
 
-description <http://opencaesar.io/template/description/authtooldescription/alterdescription> with # as alterdescription{
+description <http://opencaesar.io/template/description/authtooldescription/alternativedesigndescription> with # as alterdescription{
 	
 	uses <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/alternativedesignsofmountingbracket>
 	uses <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/thermalanalysis>

@@ -1,6 +1,5 @@
-PREFIX voc:   <http://opencaesar.io/template/vocabulary/topologyopt#>
-
-SELECT ?album ?x
+PREFIX alternativedesignsofmountingbracket:<http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/alternativedesignsofmountingbracket#>
+SELECT ?x ?y
 WHERE {
-   ?album voc:contains ?x.
+  ?x alternativedesignsofmountingbracket:boundaryConditions ?y .
 }

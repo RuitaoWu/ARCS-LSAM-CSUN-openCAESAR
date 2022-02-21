@@ -1,11 +1,15 @@
 vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/alternativedesignsofmountingbracket> with # as alternativedesignsofmountingbracket{
+	
     extends <http://imce.jpl.nasa.gov/foundation/project>
     extends <http://imce.jpl.nasa.gov/foundation/base>
     extends <http://imce.jpl.nasa.gov/foundation/mission>
     extends <http://imce.jpl.nasa.gov/foundation/analysis>
 	extends <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/thermalanalysis>
+	//add some description to explanin what are these concept represent
+	//add some constraints
+	@dc:^description ""
 	concept Filter
-	concept GenerativeDesignOfMountingBracket
+	concept GenerativeDesignOfMountingBracket 
     concept GenerativeDesignOpt
     concept Material
     concept StaticLoad
