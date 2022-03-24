@@ -4,158 +4,94 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     extends <http://imce.jpl.nasa.gov/foundation/mission>
     extends <http://imce.jpl.nasa.gov/foundation/analysis>
     @dc:title "Generative Design Optimization"
-    concept GenerativeDesignOptimization
-    concept StaticLoad
-    concept Fixtures
-    concept RepresentativeLoad
-    concept Geometry
-    concept Ti6a4v
-    concept Al6061
-    concept Method
-    concept MinimizeMass
-    concept MaximizeStiffness
-    concept Inspection
-    //Generative Design Optimization Property
-    scalar property StaticDirection[
-        domain RepresentativeLoad
-        range xsd:string
+    concept PreserveGeometry
+    concept ObstacleGeometry
+    concept ObstacleOffset
+    concept StartingShape
+    concept UnassignedGeometry
+    concept Body :> UnassignedGeometry
+    concept Objectives
+    concept MinimizeMass :> Objectives
+    concept Limits :> Objectives
+    concept TargetSafetyFactor :> Limits
+    concept Manufacturing
+    concept Unrestricted :> Manufacturing
+    concept Additive :> Manufacturing
+    concept Milling :> Manufacturing
+    concept LoadCase
+    concept Loads :> LoadCase
+    concept Gravity :> Loads
+    concept Constraints :> LoadCase
+    enumerated scalar SafetyFactor :> xsd:float[
+    	2.0
     ]
-    scalar property StaticMagnitude[
-        domain RepresentativeLoad
-        range xsd:int
+    enumerated scalar Visiblity :> xsd:string[
+    	"yes"^^xsd:string,
+    	"no"^^xsd:string
     ]
-    scalar property Magnitude[
-        domain StaticLoad
-        range xsd:int
+    enumerated scalar Status :> xsd:string[
+    	"on","off"
     ]
-    scalar property Direction[
-        domain StaticLoad
-        range xsd:string
+    enumerated scalar Materials :> xsd:string[
+    	"Aluminum AlSi10Mg",
+    	"CobaltChrome",
+    	"Inconel625",
+  		"Inconel718",
+  		"Inconel718Plus",
+  		"StainlessSteel17-4PH",
+  		"StainlessSteelAISI304",
+  		"Tianium6Al-4V"
     ]
-    scalar property DegreeOfFreedom[
-        domain Fixtures
-        range xsd:string
+    scalar property LoadCaseStatus[
+    	domain LoadCase
+    	range Status
     ]
-    scalar property Obstacle[
-        domain Geometry
-        range xsd:string
+    scalar property LoadStatus[
+    	domain Loads
+    	range Status
     ]
-    scalar property Preserve[
-        domain Geometry
-        range xsd:string
+    scalar property GravityStatus[
+    	domain Gravity
+    	range Status
     ]
-    scalar property OptimizedSpace[
-        domain Geometry
-        range xsd:string
+    scalar property ConstraintsStatus[
+    	domain Constraints
+    	range Status
     ]
-    scalar property Yield[
-        domain Ti6a4v
-        range  xsd:string
+    scalar property UnrestrictedMatrial[
+    	domain Unrestricted
+    	range Materials
     ]
-    scalar property Ultimate[
-        domain Ti6a4v
-        range xsd:string
+    scalar property AdditivedMatrial[
+    	domain Additive
+    	range Materials
     ]
-    scalar property YoungModulus[
-        domain Ti6a4v
-        range xsd:string
+    scalar property MillingMatrial[
+    	domain Milling
+    	range Materials
     ]
-    scalar property PoissonRatio[
-        domain Ti6a4v
-        range xsd:float
+    scalar property isTargetSafetyFactor[
+    	domain TargetSafetyFactor
+    	range SafetyFactor
     ]
-    scalar property Density[
-        domain Ti6a4v
-        range xsd:int
+    scalar property isVisiblePreserveGeo[
+    	domain PreserveGeometry
+    	range Visiblity
     ]
-  
-     scalar property YoungModulus6061[
-        domain Al6061
-        range xsd:string
+    scalar property isVisibleObstacleGeo[
+    	domain ObstacleGeometry
+    	range Visiblity
     ]
-    scalar property PoissonRatio6061[
-        domain Al6061
-        range xsd:float
+    scalar property isVisibleObstacleOffset[
+    	domain ObstacleOffset
+    	range Visiblity
     ]
-    scalar property Density6061[
-        domain Al6061
-        range xsd:int
+    scalar property isVisibleStartingShape[
+    	domain StartingShape
+    	range Visiblity
     ]
-    scalar property LimitFactorOfSafety[
-        domain MinimizeMass
-        range xsd:string
-    ]
-    scalar property Limit1FactorOfSafety[
-        domain MaximizeStiffness
-        range xsd:string
-    ]
-    scalar property Limit2MassTarget[
-        domain MaximizeStiffness
-        range xsd:string
-    ]
-    scalar property Roughness[
-        domain Inspection
-        range xsd:string
-    ]
-    scalar property Tolerance[
-        domain Inspection
-        range xsd:string
-    ]
-    scalar property AdditiveManufacturing[
-        domain Method
-        range xsd:string
-    ]
-
-    ///
-    ///
-    relation entity BoundaryConditions[
-        from GenerativeDesignOptimization
-        to StaticLoad
-        forward boundaryconditions
-    ]
-    relation entity BoundaryConditionsFixtures[
-        from GenerativeDesignOptimization
-        to Fixtures
-        forward boundaryConditionsFixtures
-    ]
-    relation entity BoundaryCondRepresentative[
-        from GenerativeDesignOptimization
-        to RepresentativeLoad
-        forward boundaryCondRepresentative
-    ]
-    relation entity Body[
-        from GenerativeDesignOptimization
-        to Geometry
-        forward body
-    ]
-    relation entity Material[
-        from GenerativeDesignOptimization
-        to Ti6a4v
-        forward material
-    ]
-    relation entity MaterialAl6061[
-        from GenerativeDesignOptimization
-        to Al6061
-        forward materialAl6061
-    ]
-    relation entity Manufacturing[
-        from GenerativeDesignOptimization
-        to Method
-        forward manufacturing
-    ]
-    relation entity ManufacturingInspection[
-        from GenerativeDesignOptimization
-        to Inspection
-        forward manufacturingInspection
-    ]
-    relation entity Objective[
-        from GenerativeDesignOptimization
-        to MinimizeMass
-        forward objective
-    ]
-    relation entity ObjectiveMaxStiffness[
-        from GenerativeDesignOptimization
-        to MaximizeStiffness
-        forward objectiveMaxStiffness
+    scalar property isVisibleUnassignedGeometry[
+    	domain UnassignedGeometry
+    	range Visiblity
     ]
 }
