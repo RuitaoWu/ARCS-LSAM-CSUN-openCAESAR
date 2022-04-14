@@ -1,5 +1,5 @@
-PREFIX alternativedesignsofmountingbracket:<http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/alternativedesignsofmountingbracket#>
+PREFIX alternative:<http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/alternativedesignsofmountingbracket>
 SELECT ?x ?y
 WHERE {
-  ?x alternativedesignsofmountingbracket:boundaryConditions ?y .
+  ?x alternative:boundaryConditions ?y .
 }

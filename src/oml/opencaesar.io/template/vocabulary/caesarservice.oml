@@ -1,19 +1,19 @@
-@dc:title "openCAESAR Integration Service"
+//@dc:title "openCAESAR Integration Service"
 vocabulary <http://opencaesar.io/template/vocabulary/caesarservice> with # as caesarservice{
 //    extends <http://opencaesar.io/template/vocabulary/vocabulary1>
-	extends <http://www.w3.org/2002/07/owl>
+	//extends <http://www.w3.org/2002/07/owl>
 	extends <http://opencaesar.io/template/vocabulary/authortool>
 	extends <http://opencaesar.io/template/vocabulary/analysistool>
 	extends <http://opencaesar.io/template/vocabulary/designdevelop>  
 	aspect ConfigurationManagement
-	@dc:title "Authoring tools"
+	//@dc:title "Authoring tools"
 	aspect AuthoringTools :> authortool:AuthoringTools, ConfigurationManagement
 	concept CoreVocabularies :> authortool:AuthoringTools
 	concept FoundationVocabularies :> authortool:AuthoringTools
 	concept DisciplineVocabularies:> authortool:AuthoringTools
 	concept ApplicationVocabularies:> authortool:AuthoringTools
 	concept Description:> authortool:AuthoringTools
-	@dc:title "Analysis tools"
+	//@dc:title "Analysis tools"
 	aspect AnalysisTools :> ConfigurationManagement
 	concept Simulation :> AnalysisTools,analysistool:Simulation
 	concept SchedulingOperationSimulation :> AnalysisTools,analysistool:SchedulingOperationSimulation
@@ -25,28 +25,26 @@ vocabulary <http://opencaesar.io/template/vocabulary/caesarservice> with # as ca
 	concept DynamicAnalysis :> Simulation
 	concept ThermalAnalysis :> Simulation
 	concept Electrical :> Simulation
-	concept Structual :> Simulation
-	@dc:title "reporting tools"
+	concept Structual :> Simulation//@dc:title "reporting tools"
 	aspect ReportingTools :> ConfigurationManagement
 	concept FileBased 
-	concept DigitalOfSimulation 
-	@dc:title "Design/Develop"
+	concept DigitalOfSimulation//@dc:title "Design/Develop"
 	aspect DesignDevelop :> ConfigurationManagement
 	concept ConceptualDesign :> DesignDevelop,designdevelop:ConceptualDesign
 	concept VirtualKnowledgeGraphDesign :> DesignDevelop, designdevelop:VirtualKnowledgeGraphDesign
 	concept EngineeringDesign :> DesignDevelop, designdevelop:EngineerAndDesign
 	concept GenerativeDesign :> DesignDevelop, designdevelop:GenerativeDesign
-	@dc:title "CAESAR Authoring WB"
+	//@dc:title "CAESAR Authoring WB"
 	aspect CAESARAuthorWB :>ConfigurationManagement
-	@dc:title "AR VR and Maintenance"
+	//@dc:title "AR VR and Maintenance"
 	aspect ARVROperation :> ConfigurationManagement
 	aspect MaintenanceTraining :> ConfigurationManagement
 	concept KnowledgeDataset :> ARVROperation,MaintenanceTraining
-	@dc:title "Real Time Monitoring"
+	//@dc:title "Real Time Monitoring"
 	aspect RealTimeMonitoringOfManufacturing
 	concept EnergyDisaggregation :> RealTimeMonitoringOfManufacturing
 	concept FailureDetection :> RealTimeMonitoringOfManufacturing
-	@dc:title "Smart Connected Worker Human Machine Interaction AI-assisted System"
+	//@dc:title "Smart Connected Worker Human Machine Interaction AI-assisted System"
 	aspect SCWHumanMachineAISys
 
 	//relation

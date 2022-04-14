@@ -1,10 +1,10 @@
-@dc:title "Example Vocabulary"
-@dc:creator "Example Company"
-@dc:rights "Copyright 2019, by Example Company"
+//@dc:title "Example Vocabulary"
+//@dc:creator "Example Company"
+//@dc:rights "Copyright 2019, by Example Company"
 vocabulary <http://opencaesar.io/template/vocabulary/vocabulary1> with / as vocabulary1 {
 	
 	// The vocabulary bundle used by this description bundle
-	extends <http://www.w3.org/2002/07/owl>
+//	extends <http://www.w3.org/2002/07/owl>
 	// aspect OpticalTrackerSystem 
 	// aspect FunctionMechanicalRequirements
 	// aspect OpticalDevice

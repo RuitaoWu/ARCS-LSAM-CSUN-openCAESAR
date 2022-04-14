@@ -1,6 +1,6 @@
-@dc:title "Authoring Tools"
+//@dc:title "Authoring Tools"
 vocabulary <http://opencaesar.io/template/vocabulary/authortool> with # as authortool{
-    extends <http://www.w3.org/2002/07/owl>
+//    extends <http://www.w3.org/2002/07/owl>
     aspect AuthoringTools
 	concept CoreVocabularies :> AuthoringTools 
 	concept FoundationVocabularies :> AuthoringTools 

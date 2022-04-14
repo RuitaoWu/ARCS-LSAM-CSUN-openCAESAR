@@ -1,58 +1,60 @@
 vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/thermalanalysis> with # as thermalanalysis{
-    extends <http://imce.jpl.nasa.gov/foundation/project>
-    extends <http://imce.jpl.nasa.gov/foundation/base>
-    extends <http://imce.jpl.nasa.gov/foundation/mission>
-    extends <http://imce.jpl.nasa.gov/foundation/analysis>
-    
+//    extends <http://imce.jpl.nasa.gov/foundation/project>
+//    extends <http://imce.jpl.nasa.gov/foundation/base>
+//    extends <http://imce.jpl.nasa.gov/foundation/mission>
+//    extends <http://imce.jpl.nasa.gov/foundation/analysis>
+   // extends <http://purl.org/dc/elements/1.1/> as dc
+	
+	//extends <http://www.w3.org/2002/07/owl#>
     aspect ThermalAnalysis
-    @dc:^description "Thermal refers to the study of temperature differentials and heat flows, head can flow in 3 ways: conduction, convection, and radiation."
+   // @dc:^description "Thermal refers to the study of temperature differentials and heat flows, head can flow in 3 ways: conduction, convection, and radiation."
     concept Thermal :> ThermalAnalysis
-    @dc:^description "in this analysis the material is aluminum, so the material behavior in Fusion should be as close as possible to that of aluminum"
+    //@dc:^description "in this analysis the material is aluminum, so the material behavior in Fusion should be as close as possible to that of aluminum"
     concept Material
-    @dc:^description  "thermal loads: these are the heat flows that we apply to the object,
-						thermal loads can be characterized as either steady state (meaning it doesn't change with time) 
-						and transient (meaning that it changes with time)."
+   // @dc:^description  "thermal loads: these are the heat flows that we apply to the object,
+						//thermal loads can be characterized as either steady state (meaning it doesn't change with time) 
+						//and transient (meaning that it changes with time)."
     concept ThermalLoads
-    @dc:^description "Thermoelastic pointing deviation: this is specific to the geometry of the optical tracker 
-						but if we take a line and draw it along the central axis of the optical cone, 
-						we're essentially measuring how the angle of that line changes before and 
-						after we apply the thermal loads. We want to keep this deviation as small as possible ( <0.001 degrees)"
+   // @dc:^description "Thermoelastic pointing deviation: this is specific to the geometry of the optical tracker 
+						//but if we take a line and draw it along the central axis of the optical cone, 
+						//we're essentially measuring how the angle of that line changes before and 
+						//after we apply the thermal loads. We want to keep this deviation as small as possible ( <0.001 degrees)"
     concept ThermoelasticPointingDev
-    @dc:^description "Heat loss: it is about a heat flow.The heat loss we'll be dealing with will come in the form of radiation since we're in space, 
-						and there's no other pathway for the thermal energy to take. 
-						Heat loss is directional, meaning that if systems can gain or lose heat, this is an example of a system losing heat. 
-						Our tracker will lose heat when it passes through the shadow of the earth during orbit. 
-						Heat loss is characterized by a drop in temperature in the system."
+   // @dc:^description "Heat loss: it is about a heat flow.The heat loss we'll be dealing with will come in the form of radiation since we're in space, 
+						//and there's no other pathway for the thermal energy to take. 
+						//Heat loss is directional, meaning that if systems can gain or lose heat, this is an example of a system losing heat. 
+						//Our tracker will lose heat when it passes through the shadow of the earth during orbit. 
+						//Heat loss is characterized by a drop in temperature in the system."
     concept HeatLoss
     //Mounting Bracket Property
-    scalar property TrackerTemp[
-        domain ThermalLoads
-        range xsd:float
-    ]
-    scalar property MountsTemp[
-        domain ThermalLoads
-        range xsd:float
-    ]
-    scalar property Centerline[
-        domain ThermoelasticPointingDev
-        range xsd:string
-    ]
-    scalar property HeatTransThroughMounts[
-        domain HeatLoss
-        range xsd:string
-    ]
-	scalar property MaterialType[
-		domain Material
-		range xsd:string
-	]
-	scalar property ThermalConductivity[
-		domain Material
-		range xsd:string
-	]
-	scalar property ThermalDisfusivity[
-		domain Material
-		range xsd:string
-	]
+//    scalar property TrackerTemp[
+//        domain ThermalLoads
+//        range xsd:float
+//    ]
+//    scalar property MountsTemp[
+//        domain ThermalLoads
+//        range xsd:float
+//    ]
+//    scalar property Centerline[
+//        domain ThermoelasticPointingDev
+//        range xsd:string
+//    ]
+//    scalar property HeatTransThroughMounts[
+//        domain HeatLoss
+//        range xsd:string
+//    ]
+//	scalar property MaterialType[
+//		domain Material
+//		range xsd:string
+//	]
+//	scalar property ThermalConductivity[
+//		domain Material
+//		range xsd:string
+//	]
+//	scalar property ThermalDisfusivity[
+//		domain Material
+//		range xsd:string
+//	]
 
     //Relation
 	relation entity LoadingConditions[

@@ -1,9 +1,9 @@
 vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/generativedesignopt> with # as generativedesignopt{
-    extends <http://imce.jpl.nasa.gov/foundation/project>
-    extends <http://imce.jpl.nasa.gov/foundation/base>
-    extends <http://imce.jpl.nasa.gov/foundation/mission>
-    extends <http://imce.jpl.nasa.gov/foundation/analysis>
-    @dc:title "Generative Design Optimization"
+//    extends <http://imce.jpl.nasa.gov/foundation/project>
+//    extends <http://imce.jpl.nasa.gov/foundation/base>
+//    extends <http://imce.jpl.nasa.gov/foundation/mission>
+//    extends <http://imce.jpl.nasa.gov/foundation/analysis>
+//    @dc:title "Generative Design Optimization"
     concept PreserveGeometry
     concept ObstacleGeometry
     concept ObstacleOffset
@@ -22,17 +22,18 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     concept Loads :> LoadCase
     concept Gravity :> Loads
     concept Constraints :> LoadCase
-    enumerated scalar SafetyFactor :> xsd:float[
+    enumerated scalar SafetyFactor[
     	2.0
     ]
-    enumerated scalar Visiblity :> xsd:string[
-    	"yes"^^xsd:string,
-    	"no"^^xsd:string
+    enumerated scalar Visiblity[
+    	"yes",
+    	"no"
     ]
-    enumerated scalar Status :> xsd:string[
-    	"on","off"
+    enumerated scalar Status[
+    	"on",
+    	"off"
     ]
-    enumerated scalar Materials :> xsd:string[
+    enumerated scalar Materials[
     	"Aluminum AlSi10Mg",
     	"CobaltChrome",
     	"Inconel625",

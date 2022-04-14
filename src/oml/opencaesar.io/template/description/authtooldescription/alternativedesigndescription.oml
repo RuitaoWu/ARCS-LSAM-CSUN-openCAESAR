@@ -7,31 +7,31 @@ description <http://opencaesar.io/template/description/authtooldescription/alter
 	ci GenerativeDesignOfMountingBracket : alternativedesignsofmountingbracket:GenerativeDesignOfMountingBracket
 	ci GenerativeDesignOfOptimization : alternativedesignsofmountingbracket:GenerativeDesignOpt
 	ci Material : alternativedesignsofmountingbracket:Material[
-		alternativedesignsofmountingbracket:MaterialType ""
+		//alternativedesignsofmountingbracket:MaterialType ""
 	]
 	ci StaticLoad : alternativedesignsofmountingbracket:StaticLoad[
-		alternativedesignsofmountingbracket:DirectionStaticLoad ""
-		alternativedesignsofmountingbracket:MagnitudeStaticLoad ""
+		//alternativedesignsofmountingbracket:DirectionStaticLoad ""
+		//alternativedesignsofmountingbracket:MagnitudeStaticLoad ""
 	]
 	ci RepresentativeLoad : alternativedesignsofmountingbracket:RepresentativeLoad[
-		alternativedesignsofmountingbracket:DirectionRepreLoad ""
-		alternativedesignsofmountingbracket:MagnitudeRepreLoad ""
+		//alternativedesignsofmountingbracket:DirectionRepreLoad ""
+		//alternativedesignsofmountingbracket:MagnitudeRepreLoad ""
 	]
 	ci Fixtures : alternativedesignsofmountingbracket:Fixtures[
-		alternativedesignsofmountingbracket:DegreeofFredom ""
-		alternativedesignsofmountingbracket:Units ""
+		//alternativedesignsofmountingbracket:DegreeofFredom ""
+		//alternativedesignsofmountingbracket:Units ""
 	]
 	ci GeometricConstrains : alternativedesignsofmountingbracket:GeometricConstraints[
-		alternativedesignsofmountingbracket:Obstacle ""
-		alternativedesignsofmountingbracket:Preserve ""
-		alternativedesignsofmountingbracket:OptimizedSpace ""
+//		alternativedesignsofmountingbracket:Obstacle ""
+//		alternativedesignsofmountingbracket:Preserve ""
+//		alternativedesignsofmountingbracket:OptimizedSpace ""
 	]
 	ci Processes : alternativedesignsofmountingbracket:Processes[
-		alternativedesignsofmountingbracket:AdditiveManufacturing ""
+//		alternativedesignsofmountingbracket:AdditiveManufacturing ""
 	]
 	ci Inspection : alternativedesignsofmountingbracket:Inspection[
-		alternativedesignsofmountingbracket:Roughness ""
-		alternativedesignsofmountingbracket:Tolerance ""
+//		alternativedesignsofmountingbracket:Roughness ""
+//		alternativedesignsofmountingbracket:Tolerance ""
 	]
 	ri Materials : alternativedesignsofmountingbracket:Materials[
 		from GenerativeDesignOfOptimization
@@ -64,19 +64,19 @@ description <http://opencaesar.io/template/description/authtooldescription/alter
 	//////////thermal analysis
 	ci ThermalAnalysis : thermalanalysis:Thermal
 	ci ThermalLoads : thermalanalysis:ThermalLoads[
-		thermalanalysis:TrackerTemp ""
-		thermalanalysis:MountsTemp ""
+//		thermalanalysis:TrackerTemp ""
+//		thermalanalysis:MountsTemp ""
 	]
 	ci ThermolasticPointingDeviation : thermalanalysis:ThermoelasticPointingDev[
-		thermalanalysis:Centerline ""
+//		thermalanalysis:Centerline ""
 	]
 	ci HeatLoss : thermalanalysis:HeatLoss[
-		thermalanalysis:HeatTransThroughMounts ""
+//		thermalanalysis:HeatTransThroughMounts ""
 	]
 	ci ThermalMaterial : thermalanalysis:Material[
-		thermalanalysis:MaterialType ""
-		thermalanalysis:ThermalConductivity""
-		thermalanalysis:ThermalDisfusivity ""
+//		thermalanalysis:MaterialType ""
+//		thermalanalysis:ThermalConductivity""
+//		thermalanalysis:ThermalDisfusivity ""
 	]
 	ri LoadingCondition : thermalanalysis:LoadingConditions[
 		from ThermalAnalysis

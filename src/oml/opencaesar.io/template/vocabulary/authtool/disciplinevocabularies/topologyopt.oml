@@ -1,8 +1,8 @@
 vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/topologyopt> with # as topologyopt{
-    extends <http://imce.jpl.nasa.gov/foundation/project>
-    extends <http://imce.jpl.nasa.gov/foundation/base>
-    extends <http://imce.jpl.nasa.gov/foundation/mission>
-    extends <http://imce.jpl.nasa.gov/foundation/analysis>
+//    extends <http://imce.jpl.nasa.gov/foundation/project>
+//    extends <http://imce.jpl.nasa.gov/foundation/base>
+//    extends <http://imce.jpl.nasa.gov/foundation/mission>
+//    extends <http://imce.jpl.nasa.gov/foundation/analysis>
     concept TopologyOptimization 
     concept Gravity
     concept Load 
@@ -14,49 +14,49 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
     concept Al6061
     concept Geometry
     //Topology Optimization Property
-    scalar property Status[
-        domain Gravity
-        range xsd:boolean
-    ]
-    scalar property LoadDir[
-    	domain Load
-    	range xsd:string
-    ]
-    scalar property LoadMagnitude[
-    	domain Load
-    	range xsd:int 
-    ]
-    scalar property PercentTotalVolum[
-    	domain MaxStiffness
-    	range xsd:float
-    ]
-    scalar property Safety[
-    	domain MinMass
-    	range xsd:string
-    ]
-    scalar property DegreesOfFredom[
-        domain Fixtures
-        range xsd:string
-    ]scalar property Yield[
-        domain Ti6a4v
-        range  xsd:string
-    ]
-    scalar property Ultimate[
-        domain Ti6a4v
-        range xsd:string
-    ]
-    scalar property YoungModulus[
-        domain Ti6a4v
-        range xsd:string
-    ]
-    scalar property PoissonRatio[
-        domain Ti6a4v
-        range xsd:float
-    ]
-    scalar property Density[
-        domain Ti6a4v
-        range xsd:int
-    ]
+//    scalar property Status[
+//        domain Gravity
+//        range xsd:boolean
+//    ]
+//    scalar property LoadDir[
+//    	domain Load
+//    	range xsd:string
+//    ]
+//    scalar property LoadMagnitude[
+//    	domain Load
+//    	range xsd:int 
+//    ]
+//    scalar property PercentTotalVolum[
+//    	domain MaxStiffness
+//    	range xsd:float
+//    ]
+//    scalar property Safety[
+//    	domain MinMass
+//    	range xsd:string
+//    ]
+//    scalar property DegreesOfFredom[
+//        domain Fixtures
+//        range xsd:string
+//    ]scalar property Yield[
+//        domain Ti6a4v
+//        range  xsd:string
+//    ]
+//    scalar property Ultimate[
+//        domain Ti6a4v
+//        range xsd:string
+//    ]
+//    scalar property YoungModulus[
+//        domain Ti6a4v
+//        range xsd:string
+//    ]
+//    scalar property PoissonRatio[
+//        domain Ti6a4v
+//        range xsd:float
+//    ]
+//    scalar property Density[
+//        domain Ti6a4v
+//        range xsd:int
+//    ]
 //    scalar property ThermalConductivity6a4v[
 //        domain Ti6a4v
 //        range xsd:string
@@ -65,18 +65,18 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
 //        domain Ti6a4v
 //        range  xsd:string
 //    ]
-     scalar property YoungModulus6061[
-        domain Al6061
-        range xsd:string
-    ]
-    scalar property PoissonRatio6061[
-        domain Al6061
-        range xsd:float
-    ]
-    scalar property Density6061[
-        domain Al6061
-        range xsd:int
-    ]
+//     scalar property YoungModulus6061[
+//        domain Al6061
+//        range xsd:string
+//    ]
+//    scalar property PoissonRatio6061[
+//        domain Al6061
+//        range xsd:float
+//    ]
+//    scalar property Density6061[
+//        domain Al6061
+//        range xsd:int
+//    ]
 //    scalar property ThermalConductivity6061[
 //        domain Al6061
 //        range xsd:string
@@ -85,10 +85,10 @@ vocabulary <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabula
 //        domain Al6061
 //        range  xsd:string
 //    ]
-    scalar property Environment[
-        domain Geometry
-        range xsd:string
-    ]
+//    scalar property Environment[
+//        domain Geometry
+//        range xsd:string
+//    ]
     //Topology Optimization Relation
     relation entity TopoLoadCon[
     	from TopologyOptimization
