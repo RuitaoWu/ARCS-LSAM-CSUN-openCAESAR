@@ -1,5 +1,26 @@
-PREFIX alternative:<http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/alternativedesignsofmountingbracket>
-SELECT ?x ?y
-WHERE {
-  ?x alternative:boundaryConditions ?y .
-}
+PREFIX alternativedesignsofmountingbracket: <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/alternativedesignsofmountingbracket>
+PREFIX  prj: <http://imce.jpl.nasa.gov/foundation/project>
+PREFIX  base: <http://imce.jpl.nasa.gov/foundation/base>
+PREFIX  mission: <http://imce.jpl.nasa.gov/foundation/mission>
+PREFIX  ana: <http://imce.jpl.nasa.gov/foundation/analysis>
+PREFIX  ther: <http://opencaesar.io/template/vocabulary/authtool/disciplinevocabularies/thermalanalysis>
+# SELECT ?x ?y
+# WHERE {
+ # ?x alternativedesignsofmountingbracket:materials ?y.
+#}
+
+
+#select ?Concept 
+#where {
+#[] a ?Concept
+#}
+
+
+SELECT *{ ?s ?p ?o}
+
+#PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+#SELECT ?ontology_id ?label
+
+#WHERE {?ontology_id rdfs:label ?label}
+#select ?x ?y where{?x <http://opencaesar.io/template/description/description1#> ?y}
